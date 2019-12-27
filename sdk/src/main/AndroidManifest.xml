@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.ms.modules">
+
+    <application>
+
+
+        <provider
+            android:authorities="org.ms.${applicationId}.modules.data.init.instance"
+            android:name="org.ms.module.data.contentprovider.DataInitContentProvider"
+            android:exported="false"
+            android:enabled="true"
+            />
+
+    </application>
+
+
+
+</manifest>
