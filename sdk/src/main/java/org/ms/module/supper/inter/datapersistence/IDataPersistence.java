@@ -1,10 +1,10 @@
-package org.ms.module.supper.inter.mmkv;
+package org.ms.module.supper.inter.datapersistence;
 
 
 
 import org.ms.module.supper.inter.supper.ISupper;
 
-public interface IMMKV extends ISupper {
+public interface IDataPersistence extends ISupper {
 
     void put(String k, String v);
 

@@ -74,4 +74,41 @@ public class ModuleClient {
         }
         return exceptionModule;
     }
+
+    private static MMKVModule mmkvModule;
+
+    public static MMKVModule getMmkvModule() {
+
+        if (mmkvModule == null) {
+            mmkvModule = new MMKVModule();
+        }
+
+        return mmkvModule;
+    }
+
+    private static DataPersistenceModule dataPersistenceModule;
+
+
+    public static DataPersistenceModule getDataPersistenceModule() {
+        if (dataPersistenceModule == null) {
+            dataPersistenceModule = new DataPersistenceModule();
+        }
+
+
+        return dataPersistenceModule;
+    }
+
+
+    private static ControllSwitchModule controllSwitchModule;
+
+    public static ControllSwitchModule getControllSwitchModule() {
+
+        if(controllSwitchModule==null)
+        {
+            controllSwitchModule=new ControllSwitchModule();
+        }
+
+
+        return controllSwitchModule;
+    }
 }

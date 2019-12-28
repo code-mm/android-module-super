@@ -9,6 +9,16 @@ public class IlogAdapter implements ILog {
 
 
     @Override
+    public void print(String log) {
+
+    }
+
+    @Override
+    public void println(String log) {
+
+    }
+
+    @Override
     public void i(String tag, String log) {
 
     }

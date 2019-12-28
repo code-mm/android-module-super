@@ -9,25 +9,25 @@ import android.util.Log;
  * 全局捕获异常处理
  */
 
-public final class ChuJianExceptionHandler implements Thread.UncaughtExceptionHandler {
+public final class ModuleExceptionHandler implements Thread.UncaughtExceptionHandler {
 
     private static final String TAG = "ChuJian.Exception.Handler";
 
     private static final int SLEEP_TIMEOUT_MS = 400;
 
-    private static ChuJianExceptionHandler sInstance;
+    private static ModuleExceptionHandler sInstance;
     private final Thread.UncaughtExceptionHandler mDefaultExceptionHandler;
 
-    public ChuJianExceptionHandler() {
+    public ModuleExceptionHandler() {
         mDefaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler(this);
     }
 
     public static void init() {
         if (sInstance == null) {
-            synchronized (ChuJianExceptionHandler.class) {
+            synchronized (ModuleExceptionHandler.class) {
                 if (sInstance == null) {
-                    sInstance = new ChuJianExceptionHandler();
+                    sInstance = new ModuleExceptionHandler();
                 }
             }
         }

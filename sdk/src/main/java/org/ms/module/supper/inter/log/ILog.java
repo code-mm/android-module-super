@@ -7,6 +7,10 @@ import org.ms.module.supper.inter.supper.ISupper;
 public interface ILog extends ISupper {
 
 
+    void print(String log);
+
+    void println(String log);
+
     void i(String tag, String log);
 
     void d(String tag, String log);

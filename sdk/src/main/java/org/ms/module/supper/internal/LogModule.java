@@ -8,7 +8,6 @@ public class LogModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.log.impl.LogImpl";
 
-
     private ILog ilog;
 
     @Override

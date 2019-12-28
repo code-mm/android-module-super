@@ -34,6 +34,46 @@ public class IDataAdapter implements IData {
     }
 
     @Override
+    public void setUsername(String username) {
+
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public void setPassword(String password) {
+
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
+    }
+
+    @Override
+    public void setHomeServer(String homeServer) {
+
+    }
+
+    @Override
+    public String getHomeServer() {
+        return null;
+    }
+
+    @Override
+    public void setDeviceId(String deviceId) {
+
+    }
+
+    @Override
+    public String getDeviceId() {
+        return null;
+    }
+
+    @Override
     public void setUserId(String userId) {
 
     }
@@ -43,13 +83,14 @@ public class IDataAdapter implements IData {
         return null;
     }
 
+
     @Override
-    public void setUserName(String userName) {
+    public void setAccessToken(String accessToken) {
 
     }
 
     @Override
-    public String getUserName() {
+    public String getAccessToken() {
         return null;
     }
 }

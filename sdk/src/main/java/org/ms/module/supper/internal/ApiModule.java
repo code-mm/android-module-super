@@ -2,6 +2,7 @@ package org.ms.module.supper.internal;
 
 
 import org.ms.module.supper.inter.api.IAPI;
+import org.ms.module.supper.inter.api.IAPIAdapter;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 
 public class ApiModule extends ModuleAdapter {
@@ -18,12 +19,18 @@ public class ApiModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IAPI) {
                     iapi = (IAPI) o;
+
+                    if(iapi!=null)
+                    {
+                        return iapi;
+                    }else{
+                        return  new IAPIAdapter();
+                    }
                 }
             }
         }
         return iapi;
     }
-
 
     @Override
     public String name() {

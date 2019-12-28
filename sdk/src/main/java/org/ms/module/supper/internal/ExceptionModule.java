@@ -19,11 +19,20 @@ public class ExceptionModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IException) {
                     exception = (IException) o;
-                } else {
-                    System.out.println("! instanceof ");
+
+
+                    if(exception!=null)
+                    {
+
+                    }else
+                    {
+
+                    }
+
+
+
+
                 }
-            } else {
-                System.out.println("o == null");
             }
         }
         return exception;

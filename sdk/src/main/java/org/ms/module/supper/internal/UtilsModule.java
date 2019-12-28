@@ -3,6 +3,7 @@ package org.ms.module.supper.internal;
 
 import org.ms.module.supper.inter.module.ModuleAdapter;
 import org.ms.module.supper.inter.utils.IUtils;
+import org.ms.module.supper.inter.utils.IUtilsAdapter;
 
 public class UtilsModule extends ModuleAdapter {
 
@@ -18,6 +19,13 @@ public class UtilsModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IUtils) {
                     iUtils = (IUtils) o;
+
+                    if(iUtils!=null)
+                    {
+                        return iUtils;
+                    }else{
+                        return new IUtilsAdapter();
+                    }
                 }
             }
         }

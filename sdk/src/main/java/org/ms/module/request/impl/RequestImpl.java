@@ -4,6 +4,7 @@ import android.util.Log;
 
 import org.ms.module.supper.client.Modules;
 import org.ms.module.supper.inter.common.ICallBack;
+import org.ms.module.supper.inter.module.Module;
 import org.ms.module.supper.inter.net.IRequest;
 import org.ms.module.supper.inter.net.Response;
 import org.ms.module.utils.okhttp.OkHttpUtils;
@@ -21,8 +22,24 @@ import okhttp3.RequestBody;
 
 public class RequestImpl implements IRequest {
 
+
+    LogPlugin plugin;
+
+
+    public RequestImpl() {
+        plugin = new LogPluginImpl();
+    }
+
+
     @Override
     public Response get(Map<String, String> headers, String url) {
+
+
+        if (plugin != null) {
+            plugin.info("GET", headers, url, null, null);
+        }
+
+
         Request.Builder request = new Request.Builder();
         if (headers != null) {
             for (String k : headers.keySet()) {
@@ -44,6 +61,11 @@ public class RequestImpl implements IRequest {
 
     @Override
     public void get(Map<String, String> headers, String url, final ICallBack callBack) {
+
+        if (plugin != null) {
+            plugin.info("POST", headers, url, null, null);
+        }
+
         OkHttpUtils.doGet(headers, url, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -64,6 +86,12 @@ public class RequestImpl implements IRequest {
 
     @Override
     public Response post(Map<String, String> headers, String url, Map<String, String> params) {
+
+        if (plugin != null) {
+            plugin.info("POST", headers, url, params, null);
+        }
+
+
         Request.Builder request = new Request.Builder();
         if (headers != null) {
             for (String k : headers.keySet()) {
@@ -90,6 +118,13 @@ public class RequestImpl implements IRequest {
 
     @Override
     public void post(Map<String, String> headers, String url, Map<String, String> params, final ICallBack callBack) {
+
+
+        if (plugin != null) {
+            plugin.info("POST", headers, url, params, null);
+        }
+
+
         OkHttpUtils.doPost(headers, url, params, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -112,8 +147,9 @@ public class RequestImpl implements IRequest {
     public void requestBody(Map<String, String> headers, String url, String body, final ICallBack callBack) {
 
 
-        Log.i("request","url : "+url);
-        Log.i("request","body : "+body);
+        if (plugin != null) {
+            plugin.info("POST", headers, url, null, body);
+        }
 
 
         OkHttpUtils.doRequestBody(headers, url, body, new Callback() {
@@ -136,6 +172,13 @@ public class RequestImpl implements IRequest {
 
     @Override
     public Response requestBody(Map<String, String> headers, String url, String body) {
+
+
+        if (plugin != null) {
+            plugin.info("POST", headers, url, null, body);
+        }
+
+
         Request.Builder request = new Request.Builder();
         if (headers != null) {
             Iterator var5 = headers.keySet().iterator();

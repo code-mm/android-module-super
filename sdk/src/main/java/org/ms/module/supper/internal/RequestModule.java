@@ -3,6 +3,7 @@ package org.ms.module.supper.internal;
 import org.ms.module.supper.inter.data.IData;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 import org.ms.module.supper.inter.net.IRequest;
+import org.ms.module.supper.inter.net.IRequestAdapter;
 import org.ms.module.supper.inter.permission.IPermission;
 import org.ms.module.supper.inter.supper.ISupper;
 
@@ -21,11 +22,14 @@ public class RequestModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IRequest) {
                     iRequest = (IRequest) o;
-                } else {
-                    System.out.println("! instanceof ");
+
+
+                    if (iRequest != null) {
+                        return iRequest;
+                    } else {
+                        return new IRequestAdapter();
+                    }
                 }
-            } else {
-                System.out.println("o == null");
             }
         }
         return iRequest;

@@ -4,6 +4,12 @@ package org.ms.module.supper.inter.utils;
 public class IUtilsAdapter implements IUtils
 {
 
+    public IUtilsAdapter()
+    {
+
+    }
+
+
 
     @Override
     public IApkUtils getApkUtils() {

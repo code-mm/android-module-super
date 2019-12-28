@@ -10,6 +10,10 @@ import java.util.Map;
 public class IRequestAdapter implements IRequest {
 
 
+    public  IRequestAdapter() {
+    }
+
+
     @Override
     public Response get(Map<String, String> headers, String url) {
         return null;

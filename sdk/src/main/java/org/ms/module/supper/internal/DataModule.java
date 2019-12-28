@@ -2,6 +2,7 @@ package org.ms.module.supper.internal;
 
 
 import org.ms.module.supper.inter.data.IData;
+import org.ms.module.supper.inter.data.IDataAdapter;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 
 public class DataModule extends ModuleAdapter {
@@ -16,6 +17,14 @@ public class DataModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IData) {
                     iData = (IData) o;
+
+                    if (iData != null) {
+                        return iData;
+
+                    } else {
+                        return new IDataAdapter();
+                    }
+
                 } else {
                     System.out.println("! instanceof ");
                 }

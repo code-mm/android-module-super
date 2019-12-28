@@ -5,6 +5,18 @@ import org.ms.module.supper.inter.log.IlogAdapter;
 
 
 public class LogImpl extends IlogAdapter {
+
+
+    @Override
+    public void print(String log) {
+        System.out.print(log);
+    }
+
+    @Override
+    public void println(String log) {
+        System.out.println(log);
+    }
+
     @Override
     public void i(String tag, String log) {
         LogUtils.i(tag, log);
