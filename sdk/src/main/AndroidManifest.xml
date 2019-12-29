@@ -6,14 +6,13 @@
 
 
         <provider
-            android:authorities="org.ms.${applicationId}.modules.data.init.instance"
             android:name="org.ms.module.data.contentprovider.DataInitContentProvider"
-            android:exported="false"
+            android:authorities="org.ms.${applicationId}.modules.data.init.instance"
             android:enabled="true"
-            />
+            android:exported="false" />
+
 
     </application>
-
 
 
 </manifest>

@@ -10,7 +10,8 @@ public interface ICallBack<
         CANCEL,
         START,
         UNKNOWN,
-        EXCEPTION
+        EXCEPTION,
+        CHANGE
         > extends ISupper {
 
     void onSuccess(SUCCESS success);
@@ -24,5 +25,8 @@ public interface ICallBack<
     void onUnknown(UNKNOWN unknown);
 
     void onException(EXCEPTION exception);
+
+
+    void onChange(CHANGE change);
 
 }

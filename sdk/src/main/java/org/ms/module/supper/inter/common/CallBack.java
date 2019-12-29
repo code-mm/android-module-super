@@ -5,12 +5,16 @@ public abstract class CallBack <
         CANCEL,
         START,
         UNKNOWN,
-        EXCEPTION> implements ICallBack< SUCCESS,
+        EXCEPTION,
+        CHANGE
+        > implements ICallBack< SUCCESS,
         FAILURE,
         CANCEL,
         START,
         UNKNOWN,
-        EXCEPTION> {
+        EXCEPTION,
+        CHANGE
+        > {
     @Override
     public void onSuccess(SUCCESS success) {
 
@@ -38,6 +42,12 @@ public abstract class CallBack <
 
     @Override
     public void onException(EXCEPTION exception) {
+
+    }
+
+
+    @Override
+    public void onChange(CHANGE  change) {
 
     }
 }

@@ -103,12 +103,22 @@ public class ModuleClient {
 
     public static ControllSwitchModule getControllSwitchModule() {
 
-        if(controllSwitchModule==null)
-        {
-            controllSwitchModule=new ControllSwitchModule();
+        if (controllSwitchModule == null) {
+            controllSwitchModule = new ControllSwitchModule();
         }
 
 
         return controllSwitchModule;
+    }
+
+
+    NetStatusModule netStatusModule;
+
+    public NetStatusModule getNetStatusModule() {
+
+        if (netStatusModule == null) {
+            netStatusModule = new NetStatusModule();
+        }
+        return netStatusModule;
     }
 }
