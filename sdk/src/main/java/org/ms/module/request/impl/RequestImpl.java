@@ -63,7 +63,7 @@ public class RequestImpl implements IRequest {
     public void get(Map<String, String> headers, String url, final ICallBack callBack) {
 
         if (plugin != null) {
-            plugin.info("POST", headers, url, null, null);
+            plugin.info("GET", headers, url, null, null);
         }
 
         OkHttpUtils.doGet(headers, url, new Callback() {
