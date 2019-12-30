@@ -7,6 +7,7 @@ import org.ms.module.supper.inter.data.IData;
 import org.ms.module.supper.inter.datapersistence.IDataPersistence;
 import org.ms.module.supper.inter.exception.IException;
 import org.ms.module.supper.inter.log.*;
+import org.ms.module.supper.inter.matrix.IMatrix;
 import org.ms.module.supper.inter.mmkv.IMMKV;
 import org.ms.module.supper.inter.net.IRequest;
 import org.ms.module.supper.inter.permission.IPermission;
@@ -23,6 +24,7 @@ public class Modules {
     public static IControlSwitch getControlSwitch() {
         return ModuleClient.getControllSwitchModule().get();
     }
+
     public static ILog getLogModule() {
         return ModuleClient.getLogModule().get();
     }
@@ -58,5 +60,9 @@ public class Modules {
 
     public static IDataPersistence getDataPersistenceModule() {
         return ModuleClient.getDataPersistenceModule().get();
+    }
+
+    public static IMatrix getMatrixModule() {
+        return ModuleClient.getMatrixModule().get();
     }
 }

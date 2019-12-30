@@ -112,7 +112,7 @@ public class ModuleClient {
     }
 
 
-    NetStatusModule netStatusModule;
+    private static NetStatusModule netStatusModule;
 
     public NetStatusModule getNetStatusModule() {
 
@@ -120,5 +120,14 @@ public class ModuleClient {
             netStatusModule = new NetStatusModule();
         }
         return netStatusModule;
+    }
+
+    private static MatrixModule matrixModule;
+
+    public static MatrixModule getMatrixModule() {
+        if (matrixModule == null) {
+            matrixModule = new MatrixModule();
+        }
+        return matrixModule;
     }
 }

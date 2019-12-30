@@ -66,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onException(Object o) {
 
                     }
+
+                    @Override
+                    public void onChange(Object o) {
+
+                    }
                 });
 
             }
