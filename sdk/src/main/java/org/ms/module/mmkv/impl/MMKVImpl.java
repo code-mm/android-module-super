@@ -12,7 +12,7 @@ public class MMKVImpl implements IMMKV {
     public MMKVImpl() {
 
         // 初始化mmkv
-        String rootDir = MMKV.initialize(Modules.getDataModule().getApplication());
+        String rootDir = MMKV.initialize(Modules.getDataModule().getAppData().getApplication());
 
         kv = MMKV.defaultMMKV();
     }

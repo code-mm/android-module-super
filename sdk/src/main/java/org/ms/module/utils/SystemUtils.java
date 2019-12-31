@@ -40,7 +40,7 @@ public class SystemUtils implements ISystemUtils {
 
     @Override
     public String getIp() {
-        final WifiManager wifiManager = (WifiManager) Modules.getDataModule().getApplication()
+        final WifiManager wifiManager = (WifiManager) Modules.getDataModule().getAppData().getApplication()
                 .getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         int ip = wifiInfo.getIpAddress();
@@ -83,7 +83,7 @@ public class SystemUtils implements ISystemUtils {
      * @return
      */
     public static String getPhoneNum() {
-        TelephonyManager tm = (TelephonyManager) Modules.getDataModule().getApplication()
+        TelephonyManager tm = (TelephonyManager) Modules.getDataModule().getAppData().getApplication()
                 .getSystemService(Context.TELEPHONY_SERVICE);
         @SuppressLint("MissingPermission")
         String phoneId = tm.getLine1Number();
@@ -95,7 +95,7 @@ public class SystemUtils implements ISystemUtils {
     public String getImei() {
         try {
             //实例化TelephonyManager对象
-            TelephonyManager telephonyManager = (TelephonyManager) Modules.getDataModule().getApplication().getSystemService(Context.TELEPHONY_SERVICE);
+            TelephonyManager telephonyManager = (TelephonyManager) Modules.getDataModule().getAppData().getApplication().getSystemService(Context.TELEPHONY_SERVICE);
             //获取IMEI号
             @SuppressLint("MissingPermission")
             String imei = telephonyManager.getDeviceId();
@@ -110,7 +110,7 @@ public class SystemUtils implements ISystemUtils {
     @Override
     public String getAndroidId() {
         String ANDROID_ID = Settings.System.getString(
-                Modules.getDataModule().getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
+                Modules.getDataModule().getAppData().getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
         return ANDROID_ID;
     }
 
@@ -132,7 +132,7 @@ public class SystemUtils implements ISystemUtils {
 
     @Override
     public String getMac() {
-        WifiManager wifiMan = (WifiManager) Modules.getDataModule().getApplication()
+        WifiManager wifiMan = (WifiManager) Modules.getDataModule().getAppData().getApplication()
                 .getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInf = wifiMan.getConnectionInfo();
 
@@ -239,15 +239,15 @@ public class SystemUtils implements ISystemUtils {
     @Override
     public List<Map<String, String>> getAppList() {
         List<Map<String, String>> list = new ArrayList<>();
-        List<PackageInfo> packages = Modules.getDataModule().getApplication().getPackageManager().getInstalledPackages(0);
+        List<PackageInfo> packages = Modules.getDataModule().getAppData().getApplication().getPackageManager().getInstalledPackages(0);
 
         for (int j = 0; j < packages.size(); j++) {
             PackageInfo packageInfo = packages.get(j);
             // 显示非系统软件
             if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
-                String appName = packageInfo.applicationInfo.loadLabel(Modules.getDataModule().getApplication().getPackageManager()).toString();
+                String appName = packageInfo.applicationInfo.loadLabel(Modules.getDataModule().getAppData().getApplication().getPackageManager()).toString();
                 String packageName = packageInfo.packageName;
-                Drawable appIcon = packageInfo.applicationInfo.loadIcon(Modules.getDataModule().getApplication().getPackageManager()).getCurrent();
+                Drawable appIcon = packageInfo.applicationInfo.loadIcon(Modules.getDataModule().getAppData().getApplication().getPackageManager()).getCurrent();
 
                 Map<String, String> map = new HashMap<>();
                 map.put(packageName, appName);
@@ -261,19 +261,19 @@ public class SystemUtils implements ISystemUtils {
     public List<Map<String, String>> getRunningProcess() {
 
         List<Map<String, String>> list = new ArrayList<>();
-        PackageManager pm = Modules.getDataModule().getApplication().getApplicationContext().getPackageManager();
+        PackageManager pm = Modules.getDataModule().getAppData().getApplication().getApplicationContext().getPackageManager();
         List<ApplicationInfo> applications = pm.getInstalledApplications(PackageManager.GET_UNINSTALLED_PACKAGES);
 
-        ActivityManager activityManager = (ActivityManager) Modules.getDataModule().getApplication().getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager activityManager = (ActivityManager) Modules.getDataModule().getAppData().getApplication().getSystemService(Context.ACTIVITY_SERVICE);
         // 获取正在运行的应用
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
         for (ActivityManager.RunningAppProcessInfo ra : runningAppProcesses) {
             String processName = ra.processName;
             for (ApplicationInfo applicationInfo : applications) {
                 if (processName.equals(applicationInfo.processName)) {
-                    String appName = applicationInfo.loadLabel(Modules.getDataModule().getApplication().getPackageManager()).toString();
+                    String appName = applicationInfo.loadLabel(Modules.getDataModule().getAppData().getApplication().getPackageManager()).toString();
                     String packageName = applicationInfo.packageName;
-                    Drawable appIcon = applicationInfo.loadIcon(Modules.getDataModule().getApplication().getPackageManager()).getCurrent();
+                    Drawable appIcon = applicationInfo.loadIcon(Modules.getDataModule().getAppData().getApplication().getPackageManager()).getCurrent();
                     HashMap<String, String> stringStringHashMap = new HashMap<>();
                     stringStringHashMap.put(packageName, appName);
                     list.add(stringStringHashMap);
@@ -305,10 +305,10 @@ public class SystemUtils implements ISystemUtils {
 
     @Override
     public String printResolution() {
-        DisplayMetrics dm = Modules.getDataModule().getApplication().getResources().getDisplayMetrics();
+        DisplayMetrics dm = Modules.getDataModule().getAppData().getApplication().getResources().getDisplayMetrics();
         int height = dm.heightPixels;
         int width = dm.widthPixels;
-        int sw = Modules.getDataModule().getApplication().getResources().getConfiguration().smallestScreenWidthDp;
+        int sw = Modules.getDataModule().getAppData().getApplication().getResources().getConfiguration().smallestScreenWidthDp;
         return width + "x" + height;
     }
 
@@ -343,7 +343,7 @@ public class SystemUtils implements ISystemUtils {
 
     @Override
     public String getSSID() {
-        WifiManager wm = (WifiManager) Modules.getDataModule().getApplication().getSystemService(WIFI_SERVICE);
+        WifiManager wm = (WifiManager) Modules.getDataModule().getAppData().getApplication().getSystemService(WIFI_SERVICE);
         if (wm != null) {
             WifiInfo winfo = wm.getConnectionInfo();
             if (winfo != null) {
@@ -358,7 +358,7 @@ public class SystemUtils implements ISystemUtils {
 
     @Override
     public String getCurrentLanguage() {
-        Locale locale = Modules.getDataModule().getApplication().getResources().getConfiguration().locale;
+        Locale locale = Modules.getDataModule().getAppData().getApplication().getResources().getConfiguration().locale;
         String language = locale.getLanguage();
         String country = locale.getCountry();
         String lc = language + "_" + country;

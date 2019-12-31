@@ -21,11 +21,11 @@ public class ApkUtils implements IApkUtils {
     public String getAppName() {
 
         try {
-            PackageManager packageManager = Modules.getDataModule().getApplication().getPackageManager();
+            PackageManager packageManager = Modules.getDataModule().getAppData().getApplication().getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
-                    Modules.getDataModule().getApplication().getPackageName(), 0);
+                    Modules.getDataModule().getAppData().getApplication().getPackageName(), 0);
             int labelRes = packageInfo.applicationInfo.labelRes;
-            return Modules.getDataModule().getApplication().getResources().getString(labelRes);
+            return Modules.getDataModule().getAppData().getApplication().getResources().getString(labelRes);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,9 +35,9 @@ public class ApkUtils implements IApkUtils {
     @Override
     public String getVersionCode() {
         try {
-            PackageManager packageManager = Modules.getDataModule().getApplication().getPackageManager();
+            PackageManager packageManager = Modules.getDataModule().getAppData().getApplication().getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
-                    Modules.getDataModule().getApplication().getPackageName(), 0);
+                    Modules.getDataModule().getAppData().getApplication().getPackageName(), 0);
             return packageInfo.versionCode + "";
 
         } catch (PackageManager.NameNotFoundException e) {
@@ -49,9 +49,9 @@ public class ApkUtils implements IApkUtils {
     @Override
     public String getVersionName() {
         try {
-            PackageManager packageManager =Modules.getDataModule().getApplication().getPackageManager();
+            PackageManager packageManager =Modules.getDataModule().getAppData().getApplication().getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
-                    Modules.getDataModule().getApplication().getPackageName(), 0);
+                    Modules.getDataModule().getAppData().getApplication().getPackageName(), 0);
             return packageInfo.versionName;
 
         } catch (PackageManager.NameNotFoundException e) {
@@ -67,7 +67,7 @@ public class ApkUtils implements IApkUtils {
             return false;
         ApplicationInfo info = null;
         try {
-            info = Modules.getDataModule().getApplication().getPackageManager().getApplicationInfo(s, 0);
+            info = Modules.getDataModule().getAppData().getApplication().getPackageManager().getApplicationInfo(s, 0);
             return info != null;
         } catch (PackageManager.NameNotFoundException e) {
             return false;
@@ -77,8 +77,8 @@ public class ApkUtils implements IApkUtils {
     @Override
     public String getMeta(String s) {
         try {
-            ApplicationInfo appInfo = Modules.getDataModule().getApplication().getPackageManager()
-                    .getApplicationInfo(Modules.getDataModule().getApplication().getPackageName(),
+            ApplicationInfo appInfo = Modules.getDataModule().getAppData().getApplication().getPackageManager()
+                    .getApplicationInfo(Modules.getDataModule().getAppData().getApplication().getPackageName(),
                             PackageManager.GET_META_DATA);
 
             String values = appInfo.metaData.getString(s);
@@ -94,7 +94,7 @@ public class ApkUtils implements IApkUtils {
     @Override
     public boolean isDebug() {
         try {
-            ApplicationInfo info = Modules.getDataModule().getApplication().getApplicationInfo();
+            ApplicationInfo info = Modules.getDataModule().getAppData().getApplication().getApplicationInfo();
             return (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -106,8 +106,8 @@ public class ApkUtils implements IApkUtils {
     @Override
     public String getPackageName() {
         try {
-            ApplicationInfo appInfo = Modules.getDataModule().getApplication().getPackageManager()
-                    .getApplicationInfo(Modules.getDataModule().getApplication().getPackageName(),
+            ApplicationInfo appInfo = Modules.getDataModule().getAppData().getApplication().getPackageManager()
+                    .getApplicationInfo(Modules.getDataModule().getAppData().getApplication().getPackageName(),
                             PackageManager.GET_META_DATA);
 
             return appInfo.packageName;

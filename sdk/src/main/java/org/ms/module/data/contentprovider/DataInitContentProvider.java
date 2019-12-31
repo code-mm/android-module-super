@@ -9,9 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import org.ms.module.data.__DATA__;
-import org.ms.module.supper.client.Modules;
-import org.ms.module.supper.inter.data.IData;
+import org.ms.module.data.__APP_DATA__;
 
 public class DataInitContentProvider extends ContentProvider {
 
@@ -20,8 +18,8 @@ public class DataInitContentProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
 
-        __DATA__.mApplication = (Application) this.getContext().getApplicationContext();
-        Log.d(TAG, " __DATA__ init success");
+        __APP_DATA__.mApplication = (Application) this.getContext().getApplicationContext();
+        Log.d(TAG, " __APP_DATA__ init success");
         return false;
     }
 

@@ -58,10 +58,10 @@ public class NetworkUtils implements INetWorkUtils {
      */
     public void openWirelessSettings() {
         if (android.os.Build.VERSION.SDK_INT > 10) {
-            Modules.getDataModule().getApplication().startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
+            Modules.getDataModule().getAppData().getApplication().startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
         } else {
 
-            Modules.getDataModule().getApplication().startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS));
+            Modules.getDataModule().getAppData().getApplication().startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS));
         }
     }
 
@@ -71,7 +71,7 @@ public class NetworkUtils implements INetWorkUtils {
      * @return NetworkInfo
      */
     public NetworkInfo getActiveNetworkInfo() {
-        ConnectivityManager cm = (ConnectivityManager) Modules.getDataModule().getApplication()
+        ConnectivityManager cm = (ConnectivityManager) Modules.getDataModule().getAppData().getApplication()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo();
     }
@@ -117,7 +117,7 @@ public class NetworkUtils implements INetWorkUtils {
      */
     @SuppressLint("MissingPermission")
     public boolean isWifiConnected() {
-        ConnectivityManager cm = (ConnectivityManager) Modules.getDataModule().getApplication()
+        ConnectivityManager cm = (ConnectivityManager) Modules.getDataModule().getAppData().getApplication()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm != null && cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
     }
@@ -129,7 +129,7 @@ public class NetworkUtils implements INetWorkUtils {
      * @return 移动网络运营商名称
      */
     public String getNetworkOperatorName() {
-        TelephonyManager tm = (TelephonyManager) Modules.getDataModule().getApplication()
+        TelephonyManager tm = (TelephonyManager) Modules.getDataModule().getAppData().getApplication()
                 .getSystemService(Context.TELEPHONY_SERVICE);
 
         String networkOperatorName = tm.getNetworkOperatorName();
@@ -155,7 +155,7 @@ public class NetworkUtils implements INetWorkUtils {
      * </ul>
      */
     public int getPhoneType() {
-        TelephonyManager tm = (TelephonyManager) Modules.getDataModule().getApplication()
+        TelephonyManager tm = (TelephonyManager) Modules.getDataModule().getAppData().getApplication()
                 .getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getPhoneType() : -1;
     }

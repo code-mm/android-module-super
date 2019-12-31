@@ -14,7 +14,7 @@ public class DataPersistenceImpl implements IDataPersistence {
     SharedPreferences.Editor mEdit;
 
     public DataPersistenceImpl() {
-        mSharedPreferences = Modules.getDataModule().getApplication().getSharedPreferences(Modules.getUtilsModule().getApkUtils().getPackageName()+this.getClass().getName(), Context.MODE_PRIVATE);
+        mSharedPreferences = Modules.getDataModule().getAppData().getApplication().getSharedPreferences(Modules.getUtilsModule().getApkUtils().getPackageName()+this.getClass().getName(), Context.MODE_PRIVATE);
 
         mEdit = mSharedPreferences.edit();
     }

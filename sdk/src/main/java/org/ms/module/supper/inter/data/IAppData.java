@@ -5,7 +5,7 @@ import android.app.Application;
 import org.ms.module.supper.inter.supper.ISupper;
 
 
-public interface IAppData extends ISupper {
+public interface IAppData  {
 
 
     void setApplication(Application application);

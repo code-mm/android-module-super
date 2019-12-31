@@ -25,7 +25,7 @@ public class ToastUtils implements IToastUtils {
             @Override
             public void run() {
                 if (toast == null) {
-                    toast = Toast.makeText(Modules.getDataModule().getApplication(), s, Toast.LENGTH_LONG);
+                    toast = Toast.makeText(Modules.getDataModule().getAppData().getApplication(), s, Toast.LENGTH_LONG);
                 } else {
                     toast.setText(s);
                 }

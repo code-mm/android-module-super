@@ -130,4 +130,13 @@ public class ModuleClient {
         }
         return matrixModule;
     }
+
+    private static MatrixApiModule matrixApiModule;
+    public static MatrixApiModule getMatrixApiModule() {
+        if(matrixApiModule==null)
+        {
+            matrixApiModule = new MatrixApiModule();
+        }
+        return matrixApiModule;
+    }
 }

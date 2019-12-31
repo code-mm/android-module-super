@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 public class AdCodeUtils {
     public static String getAdCode() {
         try {
-            InputStreamReader inputReader = new InputStreamReader(Modules.getDataModule().getApplication().getResources().getAssets().open("sinfo.dat"));
+            InputStreamReader inputReader = new InputStreamReader(Modules.getDataModule().getAppData().getApplication().getResources().getAssets().open("sinfo.dat"));
             BufferedReader bufReader = new BufferedReader(inputReader);
             String line = "";
             String Result = "";

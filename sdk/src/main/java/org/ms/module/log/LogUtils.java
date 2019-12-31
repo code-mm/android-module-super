@@ -624,9 +624,9 @@ public final class LogUtils {
         String versionName = "";
         int versionCode = 0;
         try {
-            PackageInfo pi = Modules.getDataModule().getApplication()
+            PackageInfo pi = Modules.getDataModule().getAppData().getApplication()
                     .getPackageManager()
-                    .getPackageInfo(Modules.getDataModule().getApplication().getPackageName(), 0);
+                    .getPackageInfo(Modules.getDataModule().getAppData().getApplication().getPackageName(), 0);
             if (pi != null) {
                 versionName = pi.versionName;
                 versionCode = pi.versionCode;
@@ -707,10 +707,10 @@ public final class LogUtils {
         private Config() {
             if (mDefaultDir != null) return;
             if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
-                    && Modules.getDataModule().getApplication().getExternalCacheDir() != null)
-                mDefaultDir = Modules.getDataModule().getApplication().getExternalCacheDir() + FILE_SEP + "log" + FILE_SEP;
+                    && Modules.getDataModule().getAppData().getApplication().getExternalCacheDir() != null)
+                mDefaultDir = Modules.getDataModule().getAppData().getApplication().getExternalCacheDir() + FILE_SEP + "log" + FILE_SEP;
             else {
-                mDefaultDir = Modules.getDataModule().getApplication().getCacheDir() + FILE_SEP + "log" + FILE_SEP;
+                mDefaultDir = Modules.getDataModule().getAppData().getApplication().getCacheDir() + FILE_SEP + "log" + FILE_SEP;
             }
         }
 
@@ -876,7 +876,7 @@ public final class LogUtils {
         }
 
         private static String getCurrentProcessName() {
-            ActivityManager am = (ActivityManager) Modules.getDataModule().getApplication().getSystemService(Context.ACTIVITY_SERVICE);
+            ActivityManager am = (ActivityManager) Modules.getDataModule().getAppData().getApplication().getSystemService(Context.ACTIVITY_SERVICE);
             if (am == null) return "";
             List<ActivityManager.RunningAppProcessInfo> info = am.getRunningAppProcesses();
             if (info == null || info.size() == 0) return "";

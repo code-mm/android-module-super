@@ -1,4 +1,10 @@
 package org.ms.module.supper.inter.data;
 
-public interface IData extends IAppData, IUserData {
+import org.ms.module.supper.inter.supper.ISupper;
+
+public interface IData extends ISupper {
+
+    IAppData getAppData();
+    IUserData  getUserData();
+    IMatrixData getMatrixData();
 }

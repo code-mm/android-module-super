@@ -13,7 +13,7 @@ import org.ms.module.supper.client.Modules;
  */
 public class UMIDUtils {
     public static String getUmid() {
-        SharedPreferences sharedPreferences = Modules.getDataModule().getApplication().getSharedPreferences("com.chujian.module.mta.umid", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = Modules.getDataModule().getAppData().getApplication().getSharedPreferences("com.chujian.module.mta.umid", Context.MODE_PRIVATE);
         String umid = sharedPreferences.getString("umid", "");
         if (umid == null || umid.equals("")) {
             String s = MD5Utils.getInstance().md5(MD5Utils.getInstance().md5(MD5Utils.getInstance().md5(SystemUtils.getInstance().getMac())));
