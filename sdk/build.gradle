@@ -38,7 +38,6 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 
 
-
     implementation 'com.tencent:mmkv-static:1.1.0'
 
 }
@@ -49,7 +48,7 @@ uploadArchives {
         mavenDeployer {
             repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
             pom.version = "${rootProject.ext.maven_version}"
-            pom.artifactId = "android-sdk-modules"
+            pom.artifactId = "android-sdk-module-supper"
             pom.groupId = "org.ms"
         }
     }
