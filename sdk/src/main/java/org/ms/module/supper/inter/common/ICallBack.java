@@ -26,7 +26,6 @@ public interface ICallBack<
 
     void onException(EXCEPTION exception);
 
-
     void onChange(CHANGE change);
 
 }

@@ -17,4 +17,19 @@ public abstract class BasePresenter<M extends IModel, V extends IView> implement
 
     protected abstract M initModel();
 
+
+    @Override
+    public void showDialog() {
+        view.showDialog();
+    }
+
+    @Override
+    public void hideDialog() {
+        view.hideDialog();
+    }
+
+    @Override
+    public void showToast(String text) {
+        view.showToast(text);
+    }
 }
