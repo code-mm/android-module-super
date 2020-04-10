@@ -39,7 +39,7 @@ dependencies {
 
 
 
-    implementation 'com.tencent:mmkv:1.0.23'
+    implementation 'com.tencent:mmkv-static:1.1.0'
 
 }
 
@@ -49,7 +49,7 @@ uploadArchives {
         mavenDeployer {
             repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
             pom.version = "${rootProject.ext.maven_version}"
-            pom.artifactId = "sdk-modules"
+            pom.artifactId = "android-sdk-modules"
             pom.groupId = "org.ms"
         }
     }
