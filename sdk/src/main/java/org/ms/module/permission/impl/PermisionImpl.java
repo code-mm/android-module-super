@@ -2,7 +2,7 @@ package org.ms.module.permission.impl;
 
 
 
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import org.ms.module.permission.PermissionUtilsImpl;
 import org.ms.module.supper.inter.common.ICallBack;

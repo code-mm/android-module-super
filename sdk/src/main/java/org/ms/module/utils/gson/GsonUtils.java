@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.internal.Primitives;
 
-import java.io.StringReader;
 import java.lang.reflect.Type;
 
 public class GsonUtils {
@@ -35,7 +34,5 @@ public class GsonUtils {
         return gson.fromJson(json, classOfT);
     }
 
-    public <T> T fromJson(String json, Type typeOfT)  {
-        return gson.fromJson(json, typeOfT);
-    }
+
 }
