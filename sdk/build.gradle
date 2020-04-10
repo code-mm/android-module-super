@@ -47,7 +47,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-            pom.version = "${rootProject.ext.maven_version}"
+            pom.version = "latest"
             pom.artifactId = "android-sdk-module-supper"
             pom.groupId = "org.ms"
         }
