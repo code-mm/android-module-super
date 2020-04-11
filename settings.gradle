@@ -1,2 +1,2 @@
 include ':sdk'
-rootProject.name='android-modules-sdk'
+rootProject.name='android-modules-supper'
