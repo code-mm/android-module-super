@@ -1,5 +1,6 @@
 package org.ms.module.data.impl;
 
+import org.ms.module.supper.client.Modules;
 import org.ms.module.supper.inter.data.IUserData;
 
 public class UserDataImpl implements IUserData {
@@ -9,49 +10,140 @@ public class UserDataImpl implements IUserData {
     private String password;
     private String userid;
     private String access_token;
+    private String refresh_token;
 
 
     @Override
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String value) {
+        this.username = value;
+        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "Username".toLowerCase(), value);
+        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "Username".toLowerCase(), value);
 
     }
 
     @Override
     public String getUsername() {
-        return username;
+        if (username != null && !"".equals(username)) {
+            return username;
+        }
+
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        if (s != null && !"".equals(s)) {
+            return s;
+        }
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+
+        if (s1 != null && !"".equals(s1)) {
+            return s1;
+        }
+
+        return null;
     }
 
     @Override
-    public void setPassword(String password) {
-        this.password = password;
-
+    public void setPassword(String value) {
+        this.password = value;
+        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "Password".toLowerCase(), value);
+        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "Password".toLowerCase(), value);
     }
 
     @Override
     public String getPassword() {
-        return password;
+        if (password != null && !"".equals(password)) {
+            return password;
+        }
+
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        if (s != null && !"".equals(s)) {
+            return s;
+        }
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+
+        if (s1 != null && !"".equals(s1)) {
+            return s1;
+        }
+        return null;
     }
 
     @Override
-    public void setUserId(String userId) {
-
-        this.userid = userId;
+    public void setUserId(String value) {
+        this.userid = value;
+        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "UserId".toLowerCase(), value);
+        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "UserId".toLowerCase(), value);
     }
 
     @Override
     public String getUserId() {
-        return userid;
+
+        if (userid != null && !"".equals(userid)) {
+            return userid;
+        }
+
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        if (s != null && !"".equals(s)) {
+            return s;
+        }
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+
+        if (s1 != null && !"".equals(s1)) {
+            return s1;
+        }
+
+        return null;
     }
 
     @Override
-    public void setAccessToken(String accessToken) {
-        this.access_token = accessToken;
+    public void setAccessToken(String value) {
+        this.access_token = value;
+        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "AccessToken".toLowerCase(), value);
+        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "AccessToken".toLowerCase(), value);
 
     }
 
     @Override
     public String getAccessToken() {
-        return access_token;
+        if (access_token != null && !"".equals(access_token)) {
+            return access_token;
+        }
+
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        if (s != null && !"".equals(s)) {
+            return s;
+        }
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+
+        if (s1 != null && !"".equals(s1)) {
+            return s1;
+        }
+
+        return null;
+    }
+
+    @Override
+    public String getRefreshToken() {
+
+        if (refresh_token != null && !"".equals(refresh_token)) {
+            return refresh_token;
+        }
+
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "RefreshToken".toLowerCase());
+        if (s != null && !"".equals(s)) {
+            return s;
+        }
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "RefreshToken".toLowerCase());
+
+        if (s1 != null && !"".equals(s1)) {
+            return s1;
+        }
+
+        return null;
+    }
+
+    @Override
+    public void setRefreshToken(String value) {
+        this.refresh_token = value;
+        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "RefreshToken".toLowerCase(), value);
+        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "RefreshToken".toLowerCase(), value);
+
     }
 }

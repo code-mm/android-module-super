@@ -21,4 +21,11 @@ public interface IUserData extends ISupper {
     String getAccessToken();
 
 
+    String getRefreshToken();
+
+    void setRefreshToken(String refreshToken);
+
+
+
+
 }

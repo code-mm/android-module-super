@@ -25,36 +25,84 @@ public class AppDataImpl implements IAppData {
     }
 
     @Override
-    public void setAppVersion(String version) {
-        appVersion = version;
-        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "setAppVersion".toLowerCase(), version);
-        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "setAppVersion".toLowerCase(), version);
+    public void setAppVersion(String value) {
+        appVersion = value;
+        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "AppVersion".toLowerCase(), value);
+        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "AppVersion".toLowerCase(), value);
     }
 
     @Override
     public String getAppVersion() {
-        return appVersion;
+
+
+        if (appVersion != null && !"".equals(appVersion)) {
+            return appVersion;
+        }
+
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AppVersion".toLowerCase());
+        if (s != null && !"".equals(s)) {
+            return s;
+        }
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AppVersion".toLowerCase());
+
+        if (s1 != null && !"".equals(s1)) {
+            return s1;
+        }
+
+        return null;
     }
 
     @Override
-    public void setAppId(String id) {
-        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "setAppId".toLowerCase(), id);
-        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "setAppId".toLowerCase(), id);
+    public void setAppId(String value) {
+        this.appid=value;
+        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "AppId".toLowerCase(), value);
+        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "AppId".toLowerCase(), value);
     }
 
     @Override
     public String getAppId() {
-        return appid;
+        if (appid != null && !"".equals(appid)) {
+            return appid;
+        }
+
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AppId".toLowerCase());
+        if (s != null && !"".equals(s)) {
+            return s;
+        }
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AppId".toLowerCase());
+
+        if (s1 != null && !"".equals(s1)) {
+            return s1;
+        }
+
+        return null;
     }
 
     @Override
-    public void setAppSecret(String secret) {
-        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "setAppSecret".toLowerCase(), secret);
-        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "setAppSecret".toLowerCase(), secret);
+    public void setAppSecret(String value) {
+
+        secret=value;
+        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "AppSecret".toLowerCase(), value);
+        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "AppSecret".toLowerCase(), value);
     }
 
     @Override
     public String getAppSecret() {
-        return secret;
+
+        if (secret != null && !"".equals(secret)) {
+            return secret;
+        }
+
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AppSecret".toLowerCase());
+        if (s != null && !"".equals(s)) {
+            return s;
+        }
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AppSecret".toLowerCase());
+
+        if (s1 != null && !"".equals(s1)) {
+            return s1;
+        }
+
+        return null;
     }
 }
