@@ -18,40 +18,53 @@ import org.ms.module.supper.internal.ModuleClient;
 public class Modules {
     private Modules() {
     }
-    public static final String VERSION = "laster-dev";
+
+    public static final String VERSION = "latest";
+
     public static IControlSwitch getControlSwitch() {
         return ModuleClient.getControllSwitchModule().get();
     }
+
     public static ILog getLogModule() {
         return ModuleClient.getLogModule().get();
     }
+
     public static IAPI getApiModule() {
         return ModuleClient.getApiModule().get();
     }
+
     public static IUtils getUtilsModule() {
         return ModuleClient.getUtilsModule().get();
     }
+
     public static IData getDataModule() {
         return ModuleClient.getDataModule().get();
     }
+
     public static IPermission getPermissionModule() {
         return ModuleClient.getPermissionModule().get();
     }
+
     public static IRequest getRequestModule() {
         return ModuleClient.getRequestModule().get();
     }
+
     public static IException getExceptionModule() {
         return ModuleClient.getExceptionModule().get();
     }
+
     public static IMMKV getMmkvModule() {
         return ModuleClient.getMmkvModule().get();
     }
+
     public static IDataPersistence getDataPersistenceModule() {
         return ModuleClient.getDataPersistenceModule().get();
     }
+
     public static IMatrix getMatrixModule() {
         return ModuleClient.getMatrixModule().get();
     }
+
     public static IMatrixApi getMatrixApiModule() {
         return ModuleClient.getMatrixApiModule().get();
     }

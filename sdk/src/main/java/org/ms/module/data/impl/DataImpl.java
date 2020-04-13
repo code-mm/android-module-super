@@ -20,6 +20,6 @@ public class DataImpl extends IDataAdapter {
 
     @Override
     public IMatrixData getMatrixData() {
-        return new MatrixDataImpl();
+        return null;
     }
 }
