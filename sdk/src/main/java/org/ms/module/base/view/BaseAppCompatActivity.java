@@ -3,6 +3,8 @@ package org.ms.module.base.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -19,7 +21,6 @@ import org.ms.modules.R;
 
 public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCompatActivity implements IView {
 
-
     protected P presenter = initPresenter();
 
     protected P initPresenter() {
@@ -28,8 +29,16 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
 
     protected UIProgressDialog baseDialog;
 
+    protected FragmentManager fragmentManager;
+
+    protected FragmentTransaction fragmentTransaction;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+        fragmentManager = getSupportFragmentManager();
+
+        fragmentTransaction = fragmentManager.beginTransaction();
 
         baseDialog = new UIProgressDialog.MaterialBuilder(this).create();
 
