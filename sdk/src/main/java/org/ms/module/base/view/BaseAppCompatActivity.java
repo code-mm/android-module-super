@@ -31,14 +31,11 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
 
     protected FragmentManager fragmentManager;
 
-    protected FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         fragmentManager = getSupportFragmentManager();
-
-        fragmentTransaction = fragmentManager.beginTransaction();
 
         baseDialog = new UIProgressDialog.MaterialBuilder(this).create();
 
