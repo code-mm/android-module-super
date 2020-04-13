@@ -9,14 +9,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import org.ms.module.data.impl.AppDataImpl;
+import org.ms.module.supper.client.Modules;
+import org.ms.module.supper.inter.module.Module;
+
 public class DataInitContentProvider extends ContentProvider {
 
     private static final String TAG = "DataInitContentProvider";
 
     @Override
     public boolean onCreate() {
-
-        __APP_DATA__.mApplication = (Application) this.getContext().getApplicationContext();
+        AppDataImpl.application = (Application) this.getContext().getApplicationContext();
+        Modules.getDataModule().getAppData().setApplication((Application) this.getContext().getApplicationContext());
         Log.d(TAG, " __APP_DATA__ init success");
         return false;
     }
