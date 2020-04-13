@@ -12,7 +12,7 @@ public class GsonUtilsImpl implements IGsonUtils {
     }
 
     @Override
-    public <T> T format(String json, Class<T> classOfT) {
+    public <T> T fromJson(String json, Class<T> classOfT) {
         return GsonUtils.getInstance().fromJson(json, classOfT);
     }
 

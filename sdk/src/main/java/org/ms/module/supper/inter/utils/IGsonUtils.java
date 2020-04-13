@@ -9,8 +9,8 @@ public interface IGsonUtils extends ISupper {
     String toJson(Object object);
 
 
-    <T> T format(String json, Class<T> classOfT);
+    <T> T fromJson(String json, Class<T> classOfT);
 
-    public <T> T fromJson(String json, Type typeOfT);
+    <T> T fromJson(String json, Type typeOfT);
 }
 
