@@ -1,12 +1,14 @@
 package org.ms.module.utils.okhttp;
+
 import okhttp3.*;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
 public class OkHttpUtils {
-    public static long CONNECTTIMEOUT = 5;
-    public static long READTIMEOUT = 5;
-    public static long WRITETIMEOUT = 5;
+    public static long CONNECTTIMEOUT = 15;
+    public static long READTIMEOUT = 15;
+    public static long WRITETIMEOUT = 15;
 
     private OkHttpUtils() {
     }

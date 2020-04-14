@@ -40,8 +40,8 @@ dependencies {
     implementation 'com.tencent:mmkv-static:1.1.0'
 }
 
-def local = false
-def snapshot = true
+def local = true
+def snapshot = false
 
 if (local) {
     uploadArchives {

@@ -23,6 +23,8 @@ import okhttp3.RequestBody;
 public class RequestImpl implements IRequest {
 
 
+    private static final String TAG = "RequestImpl";
+
     LogPlugin plugin;
 
 
@@ -173,11 +175,9 @@ public class RequestImpl implements IRequest {
     @Override
     public Response requestBody(Map<String, String> headers, String url, String body) {
 
-
         if (plugin != null) {
             plugin.info("POST", headers, url, null, body);
         }
-
 
         Request.Builder request = new Request.Builder();
         if (headers != null) {
@@ -193,8 +193,8 @@ public class RequestImpl implements IRequest {
         request.post(requestBody);
         try {
             okhttp3.Response execute = OkHttpUtils.getInstance().newCall(request.build()).execute();
-
-            return new Response(execute.code(), execute.body().string(), null);
+            String bodyString = execute.body().string();
+            return new Response(execute.code(), bodyString, null);
 
         } catch (IOException e) {
             e.printStackTrace();

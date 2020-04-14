@@ -16,12 +16,14 @@ public interface IAPI extends ISupper {
     void onSwitch();
 
     // 设置base url
-    void setBaseUrl(String... baseUrl);
-    List<String> getBaseUrl();
+    void setBaseUrls(String... baseUrl);
+    List<String> getBaseUrls();
 
     // 设置cdn url
-    void setCdnUrl(String... cdnUrl);
-    List<String> getCdnUrl();
+    void setCdnUrls(String... cdnUrl);
+    List<String> getCdnUrls();
 
+    String getBaseUrl();
+    String getCdnUrl();
 
 }

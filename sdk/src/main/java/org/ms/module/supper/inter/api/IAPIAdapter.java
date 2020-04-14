@@ -15,22 +15,33 @@ public class IAPIAdapter implements IAPI {
     }
 
     @Override
-    public void setBaseUrl(String... baseUrl) {
+    public void setBaseUrls(String... baseUrl) {
 
     }
 
     @Override
-    public List<String> getBaseUrl() {
+    public List<String> getBaseUrls() {
         return null;
     }
 
     @Override
-    public void setCdnUrl(String... cdnUrl) {
+    public void setCdnUrls(String... cdnUrl) {
 
     }
 
     @Override
-    public List<String> getCdnUrl() {
+    public List<String> getCdnUrls() {
         return null;
     }
+
+    @Override
+    public String getBaseUrl() {
+        return null;
+    }
+
+    @Override
+    public String getCdnUrl() {
+        return null;
+    }
+
 }

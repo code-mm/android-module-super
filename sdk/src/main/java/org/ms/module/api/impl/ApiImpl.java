@@ -4,12 +4,14 @@ import org.ms.module.supper.inter.api.IAPIAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class ApiImpl extends IAPIAdapter {
 
     private List<String> baseUrls = new ArrayList<>();
     private List<String> cdnUrls = new ArrayList<>();
+    Random random = new Random();
 
     @Override
     public void setStrategy(String strategy) {
@@ -22,7 +24,7 @@ public class ApiImpl extends IAPIAdapter {
     }
 
     @Override
-    public void setBaseUrl(String... baseUrl) {
+    public void setBaseUrls(String... baseUrl) {
 
         for (String it : baseUrl) {
             baseUrls.add(it);
@@ -32,12 +34,12 @@ public class ApiImpl extends IAPIAdapter {
     }
 
     @Override
-    public List<String> getBaseUrl() {
+    public List<String> getBaseUrls() {
         return baseUrls;
     }
 
     @Override
-    public void setCdnUrl(String... cdnUrl) {
+    public void setCdnUrls(String... cdnUrl) {
         for (String it : cdnUrl) {
             cdnUrls.add(it);
         }
@@ -46,7 +48,17 @@ public class ApiImpl extends IAPIAdapter {
     }
 
     @Override
-    public List<String> getCdnUrl() {
+    public List<String> getCdnUrls() {
         return cdnUrls;
+    }
+
+    @Override
+    public String getBaseUrl() {
+        return baseUrls.get(random.nextInt() % baseUrls.size());
+    }
+
+    @Override
+    public String getCdnUrl() {
+        return cdnUrls.get(random.nextInt() % baseUrls.size());
     }
 }
