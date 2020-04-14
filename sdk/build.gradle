@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -38,27 +37,65 @@ dependencies {
     implementation group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: '2.5.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 
-
     implementation 'com.tencent:mmkv-static:1.1.0'
-
 }
 
+def local = false
+def snapshot = true
+
+if (local) {
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+
+                if (snapshot) {
+
+                    pom.version = "latest-SNAPSHOT"
+                } else {
+                    pom.version = "latest"
+                }
+                pom.artifactId = "android-sdk-module-supper"
+                pom.groupId = "org.ms"
+            }
+        }
+    }
+} else {
+    uploadArchives {
+        repositories.mavenDeployer {
+            repository(url: "http://nexus.mhw828.com:8081/repository/maven-releases") {
+                authentication(userName: "admin", password: "admindev")
+            }
+
+            snapshotRepository(url: "http://nexus.mhw828.com:8081/repository/maven-snapshots") {
+                authentication(userName: "admin", password: "admindev")
+            }
+
+            pom.project {
+                // 注意：【这里通过切换 versionName 的赋值来区分上传快照包还是正式包（snapshot 版本必须以 -SNAPSHOT 结尾）】
+                //version snapshotVersionName
+                //组 maven_pom_groupid
+                groupId "org.ms"
+                //项目名称
+                artifactId "android-sdk-module-supper"
+                //  类型
+                packaging "aar"
+                // 描述
+                description ""
+                // 版本
+                if (snapshot) {
+                    version = "latest-SNAPSHOT"
+                } else {
+                    version = "latest"
+                }
 
 
-
-
-
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-            pom.version = "latest"
-            pom.artifactId = "android-sdk-module-supper"
-            pom.groupId = "org.ms"
+            }
         }
     }
 }
+
+
 // type显示指定任务类型或任务, 这里指定要执行Javadoc这个task,这个task在gradle中已经定义
 task androidJavadocs(type: Javadoc) {
     // 设置源码所在的位置
@@ -83,6 +120,5 @@ artifacts {
     archives androidSourcesJar
     archives androidJavadocsJar
 }
-
 
 task install(dependsOn: uploadArchives)
