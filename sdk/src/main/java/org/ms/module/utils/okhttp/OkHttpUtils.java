@@ -41,6 +41,12 @@ public class OkHttpUtils {
                 builder.writeTimeout(WRITETIMEOUT, TimeUnit.SECONDS);
             }
 
+
+            if (Modules.getRequestSettingModule().getRequestLogOut()) {
+                builder.addInterceptor(new LogInterceptor());
+            }
+
+
             client = builder.build();
         }
         return client;
