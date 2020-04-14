@@ -139,4 +139,12 @@ public class ModuleClient {
         }
         return matrixApiModule;
     }
+    private static CommonModule commonModule;
+    public static CommonModule getCommonModel() {
+        if(commonModule==null)
+        {
+            commonModule = new CommonModule();
+        }
+        return commonModule;
+    }
 }

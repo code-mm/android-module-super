@@ -1,6 +1,7 @@
 package org.ms.module.supper.client;
 
 
+import org.ms.module.supper.inter.common.ICommon;
 import org.ms.module.supper.inter.controll.IControlSwitch;
 import org.ms.module.supper.inter.api.IAPI;
 import org.ms.module.supper.inter.data.IData;
@@ -68,4 +69,12 @@ public class Modules {
     public static IMatrixApi getMatrixApiModule() {
         return ModuleClient.getMatrixApiModule().get();
     }
+
+
+    public static ICommon getCommonModule()
+    {
+        return ModuleClient.getCommonModel().get();
+    }
+
+
 }

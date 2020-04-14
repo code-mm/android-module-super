@@ -21,6 +21,7 @@ public class DataInitContentProvider extends ContentProvider {
     public boolean onCreate() {
         AppDataImpl.application = (Application) this.getContext().getApplicationContext();
         Modules.getDataModule().getAppData().setApplication((Application) this.getContext().getApplicationContext());
+        Modules.getCommonModule().init();
         Log.d(TAG, " __APP_DATA__ init success");
         return false;
     }
