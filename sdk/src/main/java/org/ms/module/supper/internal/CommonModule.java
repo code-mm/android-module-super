@@ -18,14 +18,8 @@ public class CommonModule extends ModuleAdapter {
         if (iCommon == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
-                if (o instanceof IAPI) {
+                if (o instanceof ICommon) {
                     iCommon = (ICommon) o;
-
-                    if (iCommon != null) {
-                        return iCommon;
-                    } else {
-                        return iCommon;
-                    }
                 }
             }
         }

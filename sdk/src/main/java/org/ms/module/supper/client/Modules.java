@@ -12,6 +12,7 @@ import org.ms.module.supper.inter.matrix.IMatrix;
 import org.ms.module.supper.inter.matrix.IMatrixApi;
 import org.ms.module.supper.inter.mmkv.IMMKV;
 import org.ms.module.supper.inter.net.IRequest;
+import org.ms.module.supper.inter.net.IRequestSetting;
 import org.ms.module.supper.inter.permission.IPermission;
 import org.ms.module.supper.inter.utils.IUtils;
 import org.ms.module.supper.internal.ModuleClient;
@@ -69,12 +70,12 @@ public class Modules {
     public static IMatrixApi getMatrixApiModule() {
         return ModuleClient.getMatrixApiModule().get();
     }
-
-
     public static ICommon getCommonModule()
     {
-        return ModuleClient.getCommonModel().get();
+        return ModuleClient.getCommonModule().get();
     }
-
-
+    public static IRequestSetting getRequestSettingModule()
+    {
+        return ModuleClient.getRequestSettingModule().get();
+    }
 }

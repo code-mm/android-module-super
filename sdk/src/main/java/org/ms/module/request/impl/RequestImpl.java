@@ -29,6 +29,7 @@ public class RequestImpl implements IRequest {
 
 
     public RequestImpl() {
+
         plugin = new LogPluginImpl();
     }
 

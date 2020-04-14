@@ -1,5 +1,8 @@
 package org.ms.module.utils.okhttp;
 
+import org.ms.module.supper.client.Modules;
+import org.ms.module.supper.inter.module.Module;
+
 import okhttp3.*;
 
 import java.util.Map;
@@ -17,11 +20,28 @@ public class OkHttpUtils {
 
     public static OkHttpClient getInstance() {
         if (client == null) {
-            client = new OkHttpClient.Builder()
-                    .connectTimeout(CONNECTTIMEOUT, TimeUnit.SECONDS)
-                    .readTimeout(READTIMEOUT, TimeUnit.SECONDS)
-                    .writeTimeout(WRITETIMEOUT, TimeUnit.SECONDS)
-                    .build();
+
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+            if (Modules.getRequestSettingModule().getConnectTimeout() != 0) {
+                builder.connectTimeout(Modules.getRequestSettingModule().getConnectTimeout(), TimeUnit.SECONDS);
+            } else {
+                builder.connectTimeout(CONNECTTIMEOUT, TimeUnit.SECONDS);
+            }
+
+            if (Modules.getRequestSettingModule().getWriteTimeout() != 0) {
+                builder.connectTimeout(Modules.getRequestSettingModule().getWriteTimeout(), TimeUnit.SECONDS);
+            } else {
+                builder.readTimeout(READTIMEOUT, TimeUnit.SECONDS);
+            }
+
+            if (Modules.getRequestSettingModule().getReadTimeout() != 0) {
+                builder.connectTimeout(Modules.getRequestSettingModule().getReadTimeout(), TimeUnit.SECONDS);
+            } else {
+                builder.writeTimeout(WRITETIMEOUT, TimeUnit.SECONDS);
+            }
+
+            client = builder.build();
         }
         return client;
     }
