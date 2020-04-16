@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class OkHttpUtils {
-    public static long CONNECTTIMEOUT = 15;
-    public static long READTIMEOUT = 15;
-    public static long WRITETIMEOUT = 15;
+    public static long CONNECTTIMEOUT = 60;
+    public static long READTIMEOUT = 60;
+    public static long WRITETIMEOUT = 60;
 
     private OkHttpUtils() {
     }
@@ -96,7 +96,6 @@ public class OkHttpUtils {
         request.post(builder.build());
         getInstance().newCall(request.build()).enqueue(callback);
     }
-
 
     public static void doRequestBody(
             Map<String, String> headers,

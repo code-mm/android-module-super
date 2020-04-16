@@ -1,5 +1,6 @@
 package org.ms.module.api.impl;
 
+import org.ms.module.supper.client.Modules;
 import org.ms.module.supper.inter.api.IAPIAdapter;
 
 import java.util.ArrayList;
@@ -54,11 +55,15 @@ public class ApiImpl extends IAPIAdapter {
 
     @Override
     public String getBaseUrl() {
-        return baseUrls.get(random.nextInt() % baseUrls.size());
+        if(baseUrls.size()==0)
+        {
+            return Modules.getUtilsModule().getApkUtils().getMeta("com.bdlbsc.base.server");
+        }
+        return baseUrls.get(0);
     }
 
     @Override
     public String getCdnUrl() {
-        return cdnUrls.get(random.nextInt() % baseUrls.size());
+        return cdnUrls.get(0);
     }
 }

@@ -44,4 +44,8 @@ public interface IRegexUtils {
 
     boolean isContainChinese(String s);
 
+
+    //判断字符串是不是以数字开头
+    boolean isStartWithNumber(String str) ;
+
 }

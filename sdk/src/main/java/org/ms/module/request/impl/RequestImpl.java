@@ -22,11 +22,9 @@ import okhttp3.RequestBody;
 
 public class RequestImpl implements IRequest {
 
-
     private static final String TAG = "RequestImpl";
 
     LogPlugin plugin;
-
 
     public RequestImpl() {
 
@@ -37,11 +35,9 @@ public class RequestImpl implements IRequest {
     @Override
     public Response get(Map<String, String> headers, String url) {
 
-
         if (plugin != null) {
             plugin.info("GET", headers, url, null, null);
         }
-
 
         Request.Builder request = new Request.Builder();
         if (headers != null) {
@@ -192,14 +188,14 @@ public class RequestImpl implements IRequest {
         request.url(url);
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body);
         request.post(requestBody);
+        okhttp3.Response execute = null;
         try {
-            okhttp3.Response execute = OkHttpUtils.getInstance().newCall(request.build()).execute();
+            execute = OkHttpUtils.getInstance().newCall(request.build()).execute();
             String bodyString = execute.body().string();
             return new Response(execute.code(), bodyString, null);
-
         } catch (IOException e) {
             e.printStackTrace();
+            return new Response(execute == null ? -1 : execute.code(), null, e.getMessage().toString(),e);
         }
-        return null;
     }
 }
