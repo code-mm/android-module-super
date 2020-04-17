@@ -28,15 +28,22 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
 
 
+    // okhttp
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.10.0'
+    // gson
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
+    // rxjava rxandroid
     implementation group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.1.2'
     implementation group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.0.2'
+    // retrofit
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.4.0'
+    // retrofit gson 适配器
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    // retrofit rxjava 适配器
     implementation group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: '2.5.0'
+    // okhttp 日志
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
-
+    // mmkv
     implementation 'com.tencent:mmkv-static:1.1.0'
 }
 
@@ -88,8 +95,6 @@ if (local) {
                 } else {
                     version = "latest"
                 }
-
-
             }
         }
     }
