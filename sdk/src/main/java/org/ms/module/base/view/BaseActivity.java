@@ -67,19 +67,19 @@ public abstract class BaseActivity<P extends IPresenter> extends Activity implem
     protected void initView() {
     }
 
-    ;
+
 
     protected int getLayout() {
         return 0;
     }
 
-    ;
+
 
     protected boolean isFullScreen() {
         return false;
     }
 
-    ;
+
 
     public <T> T findView(int viewID) {
         return (T) findViewById(viewID);
