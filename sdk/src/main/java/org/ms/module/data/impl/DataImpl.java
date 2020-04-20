@@ -1,5 +1,6 @@
 package org.ms.module.data.impl;
 
+import org.ms.module.supper.inter.data.IAliyunOSSData;
 import org.ms.module.supper.inter.data.IAppData;
 import org.ms.module.supper.inter.data.IDataAdapter;
 import org.ms.module.supper.inter.data.IMatrixData;
@@ -21,5 +22,10 @@ public class DataImpl extends IDataAdapter {
     @Override
     public IMatrixData getMatrixData() {
         return null;
+    }
+
+    @Override
+    public IAliyunOSSData getAliyunOSSData() {
+        return super.getAliyunOSSData();
     }
 }

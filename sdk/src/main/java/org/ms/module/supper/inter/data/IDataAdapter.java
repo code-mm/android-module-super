@@ -1,7 +1,5 @@
 package org.ms.module.supper.inter.data;
 
-import android.app.Application;
-
 public class IDataAdapter implements IData {
 
     @Override
@@ -18,4 +16,11 @@ public class IDataAdapter implements IData {
     public IMatrixData getMatrixData() {
         return null;
     }
+
+    @Override
+    public IAliyunOSSData getAliyunOSSData() {
+        return null;
+    }
+
+
 }
