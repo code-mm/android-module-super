@@ -5,7 +5,6 @@ import org.ms.module.supper.inter.data.IUserData;
 
 public class UserDataImpl implements IUserData {
 
-
     private String username;
     private String password;
     private String userid;
