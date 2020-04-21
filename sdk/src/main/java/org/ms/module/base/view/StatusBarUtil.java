@@ -34,6 +34,75 @@ public class StatusBarUtil {
     private static final int FAKE_TRANSLUCENT_VIEW_ID = R.id.statusbarutil_translucent_view;
     private static final int TAG_KEY_HAVE_SET_OFFSET = -123;
 
+
+
+
+
+    /**
+     * 设置文字颜色
+     */
+    public static void setStatusBarFontIconDark(Activity activity) {
+        setCommonUI(activity);
+
+    }
+
+
+
+    //设置6.0的字体
+    public static void setCommonUI(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            activity.getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+    }
+
+    //设置Flyme的字体
+    public static void setFlymeUI(Activity activity,boolean dark) {
+        try {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams lp = window.getAttributes();
+            Field darkFlag = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
+            Field meizuFlags = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
+            darkFlag.setAccessible(true);
+            meizuFlags.setAccessible(true);
+            int bit = darkFlag.getInt(null);
+            int value = meizuFlags.getInt(lp);
+            if (dark) {
+                value |= bit;
+            } else {
+                value &= ~bit;
+            }
+            meizuFlags.setInt(lp, value);
+            window.setAttributes(lp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //设置MIUI字体
+    public static void setMiuiUI(Activity activity,boolean dark) {
+        try {
+            Window window = activity.getWindow();
+            Class clazz = activity.getWindow().getClass();
+            Class layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+            Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
+            int darkModeFlag = field.getInt(layoutParams);
+            Method extraFlagField = clazz.getMethod("setExtraFlags", int.class, int.class);
+            if (dark) {    //状态栏亮色且黑色字体
+                extraFlagField.invoke(window, darkModeFlag, darkModeFlag);
+            } else {
+                extraFlagField.invoke(window, 0, darkModeFlag);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
     /**
      * 设置状态栏颜色
      *

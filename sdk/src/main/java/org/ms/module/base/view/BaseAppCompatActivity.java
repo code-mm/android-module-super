@@ -36,7 +36,6 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         fragmentManager = getSupportFragmentManager();
-
         baseDialog = new UIProgressDialog.MaterialBuilder(this).create();
 
         if (isFullScreen()) {
@@ -63,15 +62,14 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
         }
 
         super.onCreate(savedInstanceState);
-        setStatusBar();
 
         if (getLayout() != 0) {
             setContentView(getLayout());
+            // 设置沉浸式
+            setStatusBar();
+            // 初始化控件
+            initView();
         }
-
-
-        initView();
-
 
     }
 
