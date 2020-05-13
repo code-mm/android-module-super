@@ -7,7 +7,7 @@ import org.ms.module.supper.inter.utils.IUtilsAdapter;
 
 public class UtilsModule extends ModuleAdapter {
 
-    private static final String CLASSPATH = "org.ms.module.utils.impl.UtilsImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.utils.UtilsImpl";
 
     private IUtils iUtils;
 
@@ -19,19 +19,16 @@ public class UtilsModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IUtils) {
                     iUtils = (IUtils) o;
-
-                    if(iUtils!=null)
-                    {
+                    if (iUtils != null) {
                         return iUtils;
-                    }else{
-                        return new IUtilsAdapter();
+                    } else {
+                        iUtils = new IUtilsAdapter();
                     }
                 }
             }
         }
         return iUtils;
     }
-
 
     @Override
     public String name() {

@@ -3,15 +3,16 @@ package org.ms.module.base.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.annotation.Nullable;
+
 import org.ms.module.base.inter.IPresenter;
 import org.ms.module.base.inter.IView;
-import org.ms.module.dialog.ui.widget.progress.UIProgressDialog;
+import org.ms.module.base.dialog.ui.widget.progress.UIProgressDialog;
 import org.ms.module.supper.client.Modules;
 
 
@@ -67,19 +68,19 @@ public abstract class BaseActivity<P extends IPresenter> extends Activity implem
     protected void initView() {
     }
 
-    ;
+
 
     protected int getLayout() {
         return 0;
     }
 
-    ;
+
 
     protected boolean isFullScreen() {
         return false;
     }
 
-    ;
+
 
     public <T> T findView(int viewID) {
         return (T) findViewById(viewID);

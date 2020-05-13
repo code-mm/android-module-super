@@ -1,12 +1,13 @@
 package org.ms.module.supper.internal;
 
 import org.ms.module.supper.inter.datapersistence.IDataPersistence;
+import org.ms.module.supper.inter.datapersistence.IDataPersistenceAdapter;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 import org.ms.module.supper.inter.supper.ISupper;
 
 public class DataPersistenceModule  extends ModuleAdapter {
 
-    private static final String CLASSPATH = "org.ms.module.dataPersistence.impl.DataPersistenceImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.datapersistence.DataPersistenceImpl";
 
     IDataPersistence iDataPersistence;
 
@@ -22,7 +23,7 @@ public class DataPersistenceModule  extends ModuleAdapter {
                     if (iDataPersistence != null) {
                         return iDataPersistence;
                     } else {
-
+                        iDataPersistence=new IDataPersistenceAdapter();
                     }
                 }
             }

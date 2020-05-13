@@ -4,7 +4,6 @@ package org.ms.module.supper.inter.utils;
 import org.ms.module.supper.inter.supper.ISupper;
 
 public interface IApkUtils  extends ISupper {
-
     String getAppName();
 
     String getVersionCode();
@@ -18,5 +17,4 @@ public interface IApkUtils  extends ISupper {
     boolean isDebug();
 
     String getPackageName();
-
 }

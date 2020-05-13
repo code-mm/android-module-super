@@ -3,22 +3,22 @@ package org.ms.module.base.view;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import org.ms.module.base.inter.IPresenter;
 import org.ms.module.base.inter.IView;
-import org.ms.module.dialog.ui.widget.progress.UIProgressDialog;
+import org.ms.module.base.dialog.ui.widget.progress.UIProgressDialog;
 import org.ms.module.supper.client.Modules;
 
 
 public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCompatActivity implements IView {
-
 
     protected P presenter = initPresenter();
 
@@ -28,9 +28,13 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
 
     protected UIProgressDialog baseDialog;
 
+    protected FragmentManager fragmentManager;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
+        fragmentManager = getSupportFragmentManager();
         baseDialog = new UIProgressDialog.MaterialBuilder(this).create();
 
         if (isFullScreen()) {
@@ -58,24 +62,28 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
 
         super.onCreate(savedInstanceState);
 
-
         if (getLayout() != 0) {
             setContentView(getLayout());
+            // 设置沉浸式
+            setStatusBar();
+            // 初始化控件
+            initView();
         }
 
-        initView();
     }
 
-    protected void initView() {
+    protected abstract void initView();
+
+    protected abstract int getLayout();
+
+    protected abstract boolean isFullScreen();
+
+
+    protected void setStatusBar() {
+        //这里做了两件事情，1.使状态栏透明并使contentView填充到状态栏 2.预留出状态栏的位置，防止界面上的控件离顶部靠的太近。这样就可以实现开头说的第二种情况的沉浸式状态栏了
+        StatusBarUtil.setTransparent(this);
     }
 
-    protected int getLayout() {
-        return 0;
-    }
-
-    protected boolean isFullScreen() {
-        return false;
-    }
 
     public void showDialog() {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {

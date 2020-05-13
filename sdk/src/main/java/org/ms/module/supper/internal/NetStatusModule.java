@@ -1,14 +1,9 @@
 package org.ms.module.supper.internal;
-
+import org.ms.module.supper.inter.common.ICallBack;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 import org.ms.module.supper.inter.net.INetStatusChange;
-import org.ms.module.supper.inter.supper.ISupper;
-
 public class NetStatusModule extends ModuleAdapter {
-
-
-    private static final String CLASSPATH = "org.ms.module.net.NetWorkChangReceiver";
-
+    private static final String CLASSPATH = "org.ms.module.impl.net.NetWorkChangReceiver";
 
     INetStatusChange iNetStatusChange;
 
@@ -28,12 +23,15 @@ public class NetStatusModule extends ModuleAdapter {
                     if (iNetStatusChange != null) {
                         return iNetStatusChange;
                     } else {
-
+                        iNetStatusChange = new INetStatusChange() {
+                            @Override
+                            public void listener(ICallBack callBack) {
+                            }
+                        };
                     }
                 }
             }
         }
         return iNetStatusChange;
-
     }
 }

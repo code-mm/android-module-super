@@ -5,9 +5,6 @@ import org.ms.module.supper.inter.supper.ISupper;
 
 public interface INetStatusChange  extends ISupper {
 
-
     void listener(ICallBack callBack);
-
-
 
 }

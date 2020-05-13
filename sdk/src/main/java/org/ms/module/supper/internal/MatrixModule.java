@@ -5,11 +5,7 @@ import org.ms.module.supper.inter.module.ModuleAdapter;
 import org.ms.module.supper.inter.supper.ISupper;
 
 public class MatrixModule  extends ModuleAdapter {
-
     private static final String CLASSPATH = "org.ms.module.matrix.impl.MatrixImpl";
-
-
-
     IMatrix iMatrix;
 
     @Override

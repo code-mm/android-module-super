@@ -2,16 +2,15 @@ package org.ms.module.supper.internal;
 
 
 
-import org.ms.module.supper.inter.api.IAPI;
+import androidx.fragment.app.FragmentActivity;
+
 import org.ms.module.supper.inter.common.ICallBack;
 import org.ms.module.supper.inter.module.ModuleAdapter;
-import org.ms.module.supper.inter.net.IRequest;
 import org.ms.module.supper.inter.permission.IPermission;
-import org.ms.module.supper.inter.supper.ISupper;
 
 public class PermissionModule extends ModuleAdapter {
 
-    private static final String CLASSPATH = "org.ms.module.permission.impl.PermisionImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.permission.PermisionImpl";
 
     private IPermission iPermission;
 
@@ -23,10 +22,13 @@ public class PermissionModule extends ModuleAdapter {
                 if (o instanceof IPermission) {
                     iPermission = (IPermission) o;
                 } else {
-                    System.out.println("! instanceof ");
+                    iPermission = new IPermission() {
+                        @Override
+                        public void request(FragmentActivity activity, ICallBack callBack, String... pers) {
+
+                        }
+                    };
                 }
-            } else {
-                System.out.println("o == null");
             }
         }
         return iPermission;

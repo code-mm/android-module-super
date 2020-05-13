@@ -2,11 +2,7 @@ package org.ms.module.supper.inter.data;
 
 import android.app.Application;
 
-import org.ms.module.supper.inter.supper.ISupper;
-
-
-public interface IAppData  {
-
+public interface IAppData {
 
     void setApplication(Application application);
 
@@ -19,5 +15,16 @@ public interface IAppData  {
     void setAppId(String id);
 
     String getAppId();
+
+    void setAppSecret(String secret);
+
+    String getAppSecret();
+
+    void setUtdid(String utdid);
+
+    String getUtdid();
+
+    void setIp(String values);
+    String getIp();
 
 }

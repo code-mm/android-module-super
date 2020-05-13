@@ -6,7 +6,7 @@ import org.ms.module.supper.inter.module.ModuleAdapter;
 
 public class LogModule extends ModuleAdapter {
 
-    private static final String CLASSPATH = "org.ms.module.log.impl.LogImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.log.LogImpl";
 
     private ILog ilog;
 
@@ -17,11 +17,10 @@ public class LogModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof ILog) {
                     ilog = (ILog) o;
-
                     if (ilog != null) {
                         return ilog;
                     } else {
-                        return new IlogAdapter();
+                        ilog = new IlogAdapter();
                     }
                 }
             }

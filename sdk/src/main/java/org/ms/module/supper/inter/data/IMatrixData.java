@@ -22,6 +22,4 @@ public interface IMatrixData   {
     void setPassword(String password);
     String getPassword();
 
-
-
 }

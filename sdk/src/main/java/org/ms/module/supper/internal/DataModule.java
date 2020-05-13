@@ -7,7 +7,7 @@ import org.ms.module.supper.inter.module.ModuleAdapter;
 
 public class DataModule extends ModuleAdapter {
 
-    private static final String CLASSPATH = "org.ms.module.data.impl.DataImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.data.DataImpl";
     private IData iData;
 
     @Override
@@ -20,16 +20,10 @@ public class DataModule extends ModuleAdapter {
 
                     if (iData != null) {
                         return iData;
-
                     } else {
-                        return new IDataAdapter();
+                        iData= new IDataAdapter();
                     }
-
-                } else {
-                    System.out.println("! instanceof ");
                 }
-            } else {
-                System.out.println("o == null");
             }
         }
         return iData;

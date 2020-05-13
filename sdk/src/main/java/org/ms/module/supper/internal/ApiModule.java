@@ -6,11 +6,8 @@ import org.ms.module.supper.inter.api.IAPIAdapter;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 
 public class ApiModule extends ModuleAdapter {
-
-    private static final String CLASSPATH = "org.ms.module.api.impl.ApiImpl";
-
+    private static final String CLASSPATH = "org.ms.module.impl.api.ApiImpl";
     private IAPI iapi;
-
 
     @Override
     public IAPI get() {
@@ -19,12 +16,10 @@ public class ApiModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IAPI) {
                     iapi = (IAPI) o;
-
-                    if(iapi!=null)
-                    {
+                    if (iapi != null) {
                         return iapi;
-                    }else{
-                        return  new IAPIAdapter();
+                    } else {
+                        iapi = new IAPIAdapter();
                     }
                 }
             }

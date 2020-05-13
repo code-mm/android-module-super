@@ -10,7 +10,7 @@ import org.ms.module.supper.inter.supper.ISupper;
 public class RequestModule extends ModuleAdapter {
 
 
-    private static final String CLASSPATH = "org.ms.module.request.impl.RequestImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.request.RequestImpl";
 
     private IRequest iRequest;
 
@@ -22,18 +22,14 @@ public class RequestModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IRequest) {
                     iRequest = (IRequest) o;
-
-
                     if (iRequest != null) {
                         return iRequest;
                     } else {
-                        return new IRequestAdapter();
+                        iRequest = new IRequestAdapter();
                     }
                 }
             }
         }
         return iRequest;
     }
-
-
 }
