@@ -8,25 +8,27 @@ import org.ms.module.supper.inter.module.ModuleAdapter;
 public class DataModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.impl.data.DataImpl";
-    private IData iData;
+    private IData data;
 
     @Override
     public IData get() {
-        if (iData == null) {
+        if (data == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IData) {
-                    iData = (IData) o;
+                    data = (IData) o;
 
-                    if (iData != null) {
-                        return iData;
+                    if (data != null) {
+                        return data;
                     } else {
-                        iData= new IDataAdapter();
+                        data = new IDataAdapter();
                     }
                 }
+            } else {
+                data = new IDataAdapter();
             }
         }
-        return iData;
+        return data;
     }
 
     @Override

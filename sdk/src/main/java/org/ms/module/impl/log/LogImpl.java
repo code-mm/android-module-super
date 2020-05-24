@@ -1,7 +1,9 @@
 package org.ms.module.impl.log;
+
 import org.ms.module.supper.client.Modules;
 import org.ms.module.supper.inter.aliyun.log.IAliyuLog;
 import org.ms.module.supper.inter.log.IlogAdapter;
+
 public class LogImpl extends IlogAdapter {
     @Override
     public void print(String log) {
@@ -23,14 +25,10 @@ public class LogImpl extends IlogAdapter {
         String fileName = stackTraceElement.getFileName();
         int lineNumber = stackTraceElement.getLineNumber();
 
-        String logText ="\n\n====================\n\t\t\t日志 ： \nfileName : "+  fileName + " \nclassName : " + className + "  \nmethodName : " + methodName + " \nlineNumber : " + lineNumber + " \nlog : " + log+"\n======================\n\n";
+        LogUtils.i(tag, log);
 
-        LogUtils.i("\n\n"+tag+"\n\n", logText);
-        LogUtils.i("\n\n"+tag+"\n\n", log);
-        IAliyuLog aliyuLogModule = Modules.getAliyuLogModule();
-        if (aliyuLogModule != null) {
-            aliyuLogModule.log(tag, logText);
-        }
+        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
+
     }
 
     @Override
@@ -42,14 +40,9 @@ public class LogImpl extends IlogAdapter {
         String fileName = stackTraceElement.getFileName();
         int lineNumber = stackTraceElement.getLineNumber();
 
-        String logText ="\n\n====================\n\t\t\t日志 ： \nfileName : "+  fileName + " \nclassName : " + className + "  \nmethodName : " + methodName + " \nlineNumber : " + lineNumber + " \nlog : " + log+"\n======================\n\n";
+        LogUtils.d(tag, log);
 
-        LogUtils.d("\n\n"+tag+"\n\n", logText);
-        LogUtils.d("\n\n"+tag+"\n\n", log);
-        IAliyuLog aliyuLogModule = Modules.getAliyuLogModule();
-        if (aliyuLogModule != null) {
-            aliyuLogModule.log(tag, logText);
-        }
+        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
     }
 
     @Override
@@ -61,15 +54,9 @@ public class LogImpl extends IlogAdapter {
         String fileName = stackTraceElement.getFileName();
         int lineNumber = stackTraceElement.getLineNumber();
 
-        String logText ="\n\n====================\n\t\t\t日志 ： \nfileName : "+  fileName + " \nclassName : " + className + "  \nmethodName : " + methodName + " \nlineNumber : " + lineNumber + " \nlog : " + log+"\n======================\n\n";
+        LogUtils.e(tag, log);
 
-
-        LogUtils.e("\n\n"+tag+"\n\n", logText);
-        LogUtils.e("\n\n"+tag+"\n\n", log);
-        IAliyuLog aliyuLogModule = Modules.getAliyuLogModule();
-        if (aliyuLogModule != null) {
-            aliyuLogModule.log(tag, logText);
-        }
+        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
     }
 
     @Override
@@ -81,15 +68,9 @@ public class LogImpl extends IlogAdapter {
         String fileName = stackTraceElement.getFileName();
         int lineNumber = stackTraceElement.getLineNumber();
 
-        String logText ="\n\n====================\n\t\t\t日志 ： \nfileName : "+  fileName + " \nclassName : " + className + "  \nmethodName : " + methodName + " \nlineNumber : " + lineNumber + " \nlog : " + log+"\n======================\n\n";
+        LogUtils.json(tag, log);
 
-
-        LogUtils.json("\n\n"+tag+"\n\n", logText);
-        LogUtils.json("\n\n"+tag+"\n\n", log);
-        IAliyuLog aliyuLogModule = Modules.getAliyuLogModule();
-        if (aliyuLogModule != null) {
-            aliyuLogModule.log(tag, logText);
-        }
+        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
     }
 
     @Override
@@ -101,14 +82,8 @@ public class LogImpl extends IlogAdapter {
         String fileName = stackTraceElement.getFileName();
         int lineNumber = stackTraceElement.getLineNumber();
 
-        String logText ="\n\n====================\n\t\t\t日志 ： \nfileName : "+  fileName + " \nclassName : " + className + "  \nmethodName : " + methodName + " \nlineNumber : " + lineNumber + " \nlog : " + log+"\n======================\n\n";
+        LogUtils.xml(tag, log);
 
-
-        LogUtils.xml("\n\n"+tag+"\n\n", logText);
-        LogUtils.xml("\n\n"+tag+"\n\n", log);
-        IAliyuLog aliyuLogModule = Modules.getAliyuLogModule();
-        if (aliyuLogModule != null) {
-            aliyuLogModule.log(tag, logText);
-        }
+        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
     }
 }

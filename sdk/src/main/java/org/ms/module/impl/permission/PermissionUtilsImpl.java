@@ -352,7 +352,7 @@ public class PermissionUtilsImpl {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
                 builder.setTitle("权限申请失败");
-                builder.setMessage("为了游戏能正常运行，我们需要访问您的" + perstr + "权限");
+                builder.setMessage("为了应用能正常运行，我们需要访问您的" + perstr + "权限");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -372,8 +372,7 @@ public class PermissionUtilsImpl {
                 builder.setNeutralButton("退出", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        System.exit(0);
-
+                        //System.exit(0);
                     }
                 });
                 builder.setCancelable(false);
@@ -485,7 +484,7 @@ public class PermissionUtilsImpl {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
                 builder.setTitle("权限申请失败");
-                builder.setMessage("为了游戏能正常运行，我们需要访问您的" + perstr + "权限，请前往应用详情界面，打开对应权限");
+                builder.setMessage("为了应用能正常运行，我们需要访问您的" + perstr + "权限，请前往应用详情界面，打开对应权限");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -507,7 +506,7 @@ public class PermissionUtilsImpl {
                 builder.setNeutralButton("退出", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        System.exit(0);
+
 
                     }
                 });
@@ -633,7 +632,7 @@ public class PermissionUtilsImpl {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
                 builder.setTitle("权限申请失败");
-                builder.setMessage("为了游戏能正常运行，我们需要访问您的" + perstr + "权限");
+                builder.setMessage("为了应用能正常运行，我们需要访问您的" + perstr + "权限");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -653,7 +652,7 @@ public class PermissionUtilsImpl {
                 builder.setNeutralButton("退出", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        System.exit(0);
+
 
                     }
                 });
@@ -763,7 +762,7 @@ public class PermissionUtilsImpl {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
                 builder.setTitle("权限申请失败");
-                builder.setMessage("为了游戏能正常运行，我们需要访问您的" + perstr + "权限，请前往应用详情界面，打开对应权限");
+                builder.setMessage("为了应用能正常运行，我们需要访问您的" + perstr + "权限，请前往应用详情界面，打开对应权限");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -785,7 +784,7 @@ public class PermissionUtilsImpl {
                 builder.setNeutralButton("退出", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        System.exit(0);
+
 
                     }
                 });

@@ -6,7 +6,7 @@
 
 
         <provider
-            android:name="org.ms.module.data.contentprovider.DataInitContentProvider"
+            android:name="org.ms.module.impl.data.DataInitContentProvider"
             android:authorities="org.ms.${applicationId}.modules.data.init.instance"
             android:enabled="true"
             android:exported="false" />

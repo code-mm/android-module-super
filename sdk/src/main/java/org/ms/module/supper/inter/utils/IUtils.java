@@ -23,4 +23,6 @@ public interface IUtils extends ISupper {
     IRegexUtils getRegexUtils();
 
     IResUtils getResUtils();
+
+    ISystemUtils getSystemUtils();
 }

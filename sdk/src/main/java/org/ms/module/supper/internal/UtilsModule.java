@@ -9,25 +9,27 @@ public class UtilsModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.impl.utils.UtilsImpl";
 
-    private IUtils iUtils;
+    private IUtils utils;
 
 
     @Override
     public IUtils get() {
-        if (iUtils == null) {
+        if (utils == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IUtils) {
-                    iUtils = (IUtils) o;
-                    if (iUtils != null) {
-                        return iUtils;
+                    utils = (IUtils) o;
+                    if (utils != null) {
+                        return utils;
                     } else {
-                        iUtils = new IUtilsAdapter();
+                        utils = new IUtilsAdapter();
                     }
                 }
+            }else{
+                utils = new IUtilsAdapter();
             }
         }
-        return iUtils;
+        return utils;
     }
 
     @Override

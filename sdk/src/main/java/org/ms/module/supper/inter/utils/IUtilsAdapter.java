@@ -51,4 +51,9 @@ public class IUtilsAdapter implements IUtils
     public IResUtils getResUtils() {
         return null;
     }
+
+    @Override
+    public ISystemUtils getSystemUtils() {
+        return null;
+    }
 }

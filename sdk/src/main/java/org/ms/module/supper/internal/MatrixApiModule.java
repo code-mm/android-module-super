@@ -7,24 +7,24 @@ public class MatrixApiModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.impl.matrix.sdk.MatrixApiImpl";
 
-    private IMatrixApi iMatrixApi;
+    private IMatrixApi matrixApi;
     @Override
     public IMatrixApi get() {
-        if (iMatrixApi == null) {
+        if (matrixApi == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IMatrixApi) {
-                    iMatrixApi = (IMatrixApi) o;
+                    matrixApi = (IMatrixApi) o;
 
-                    if (iMatrixApi != null) {
-                        return iMatrixApi;
+                    if (matrixApi != null) {
+                        return matrixApi;
                     } else {
 
                     }
                 }
             }
         }
-        return iMatrixApi;
+        return matrixApi;
     }
 
     @Override

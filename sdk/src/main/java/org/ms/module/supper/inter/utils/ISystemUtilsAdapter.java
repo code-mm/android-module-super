@@ -108,4 +108,9 @@ public class ISystemUtilsAdapter implements ISystemUtils {
     public String getNetWorkTypeName() {
         return null;
     }
+
+    @Override
+    public String getProcessName() {
+        return null;
+    }
 }

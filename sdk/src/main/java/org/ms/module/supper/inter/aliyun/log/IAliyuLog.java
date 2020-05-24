@@ -21,5 +21,14 @@ public interface IAliyuLog extends ISupper {
 
     void send(boolean send);
 
-    void log(String TAG,String logText);
+    void log(String TAG, String logText);
+
+
+    void log(String methodName,
+             String className,
+             String fileName,
+             int lineNumber,
+             String tag,
+             String log
+    );
 }

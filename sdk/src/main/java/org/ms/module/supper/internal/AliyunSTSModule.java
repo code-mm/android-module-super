@@ -7,26 +7,30 @@ public class AliyunSTSModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.impl.aliyun.STSImpl";
 
-    private ISTS ists;
+    private ISTS sts;
 
     @Override
     public ISTS get() {
-        if (ists == null) {
+        if (sts == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof ISTS) {
-                    ists = (ISTS) o;
-                    if (ists != null) {
-                        return ists;
+                    sts = (ISTS) o;
+                    if (sts != null) {
+                        return sts;
                     } else {
-                        ists= () -> {
+                        sts = () -> {
 
                         };
                     }
                 }
+            } else {
+                sts = () -> {
+
+                };
             }
         }
-        return ists;
+        return sts;
     }
 
     @Override

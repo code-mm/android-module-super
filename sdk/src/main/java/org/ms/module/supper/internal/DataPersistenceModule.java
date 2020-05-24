@@ -5,32 +5,33 @@ import org.ms.module.supper.inter.datapersistence.IDataPersistenceAdapter;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 import org.ms.module.supper.inter.supper.ISupper;
 
-public class DataPersistenceModule  extends ModuleAdapter {
+public class DataPersistenceModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.impl.datapersistence.DataPersistenceImpl";
 
-    IDataPersistence iDataPersistence;
+    IDataPersistence dataPersistence;
 
 
     @Override
     public IDataPersistence get() {
-        if (iDataPersistence == null) {
+        if (dataPersistence == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IDataPersistence) {
-                    iDataPersistence = (IDataPersistence) o;
+                    dataPersistence = (IDataPersistence) o;
 
-                    if (iDataPersistence != null) {
-                        return iDataPersistence;
+                    if (dataPersistence != null) {
+                        return dataPersistence;
                     } else {
-                        iDataPersistence=new IDataPersistenceAdapter();
+                        dataPersistence = new IDataPersistenceAdapter();
                     }
                 }
+            } else {
+                dataPersistence = new IDataPersistenceAdapter();
             }
         }
-        return iDataPersistence;
+        return dataPersistence;
     }
-
 
 
     @Override

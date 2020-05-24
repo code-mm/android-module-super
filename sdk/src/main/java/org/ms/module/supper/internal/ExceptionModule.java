@@ -25,6 +25,8 @@ public class ExceptionModule extends ModuleAdapter {
                         exception = new IExceptionAdapter();
                     }
                 }
+            }else{
+                exception = new IExceptionAdapter();
             }
         }
         return exception;

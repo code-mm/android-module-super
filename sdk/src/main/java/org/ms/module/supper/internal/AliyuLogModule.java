@@ -6,24 +6,31 @@ import org.ms.module.supper.inter.module.ModuleAdapter;
 
 public class AliyuLogModule extends ModuleAdapter {
     private static final String CLASSPATH = "org.ms.module.impl.aliyun.LogImpl";
-    private IAliyuLog iAliyuLog;
+    private IAliyuLog aliyuLog;
 
     @Override
     public IAliyuLog get() {
-        if (iAliyuLog == null) {
+        if (aliyuLog == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IAliyuLog) {
-                    iAliyuLog = (IAliyuLog) o;
-                    if (iAliyuLog != null) {
-                        return iAliyuLog;
+                    aliyuLog = (IAliyuLog) o;
+                    if (aliyuLog != null) {
+                        return aliyuLog;
                     } else {
-                        iAliyuLog = new IAliyuLogAdapter();
+                        aliyuLog = new IAliyuLogAdapter();
+                        return aliyuLog;
                     }
+                } else {
+                    aliyuLog = new IAliyuLogAdapter();
+                    return aliyuLog;
                 }
+            } else {
+                aliyuLog = new IAliyuLogAdapter();
+                return aliyuLog;
             }
         }
-        return iAliyuLog;
+        return aliyuLog;
     }
 
     @Override

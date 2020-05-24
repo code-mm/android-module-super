@@ -1,36 +1,33 @@
 package org.ms.module.supper.internal;
 
 
-
 import androidx.fragment.app.FragmentActivity;
 
 import org.ms.module.supper.inter.common.ICallBack;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 import org.ms.module.supper.inter.permission.IPermission;
+import org.ms.module.supper.inter.permission.IPermissionAdapter;
 
 public class PermissionModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.impl.permission.PermisionImpl";
 
-    private IPermission iPermission;
+    private IPermission permission;
 
     @Override
     public IPermission get() {
-        if (iPermission == null) {
+        if (permission == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IPermission) {
-                    iPermission = (IPermission) o;
+                    permission = (IPermission) o;
                 } else {
-                    iPermission = new IPermission() {
-                        @Override
-                        public void request(FragmentActivity activity, ICallBack callBack, String... pers) {
-
-                        }
-                    };
+                    permission = new IPermissionAdapter();
                 }
+            } else {
+                permission = new IPermissionAdapter();
             }
         }
-        return iPermission;
+        return permission;
     }
 }

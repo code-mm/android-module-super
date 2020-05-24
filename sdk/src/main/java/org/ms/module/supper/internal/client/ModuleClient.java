@@ -16,6 +16,7 @@ import org.ms.module.supper.internal.NetStatusModule;
 import org.ms.module.supper.internal.PermissionModule;
 import org.ms.module.supper.internal.RequestModule;
 import org.ms.module.supper.internal.RequestSettingModule;
+import org.ms.module.supper.internal.TencentBuglyModule;
 import org.ms.module.supper.internal.UtilsModule;
 
 public class ModuleClient {
@@ -149,19 +150,19 @@ public class ModuleClient {
     }
 
     private static MatrixApiModule matrixApiModule;
+
     public static MatrixApiModule getMatrixApiModule() {
-        if(matrixApiModule==null)
-        {
+        if (matrixApiModule == null) {
             matrixApiModule = new MatrixApiModule();
         }
         return matrixApiModule;
     }
+
     private static CommonModule commonModule;
 
 
     public static CommonModule getCommonModule() {
-        if(commonModule==null)
-        {
+        if (commonModule == null) {
             commonModule = new CommonModule();
         }
         return commonModule;
@@ -171,8 +172,7 @@ public class ModuleClient {
 
     public static RequestSettingModule getRequestSettingModule() {
 
-        if(requestSettingModule==null)
-        {
+        if (requestSettingModule == null) {
             requestSettingModule = new RequestSettingModule();
         }
         return requestSettingModule;
@@ -182,8 +182,7 @@ public class ModuleClient {
 
     public static AliyuLogModule getAliyuLogModule() {
 
-        if(aliyuLogModule==null)
-        {
+        if (aliyuLogModule == null) {
             aliyuLogModule = new AliyuLogModule();
         }
         return aliyuLogModule;
@@ -194,10 +193,21 @@ public class ModuleClient {
 
     public static AliyunSTSModule getAliyunSTSModule() {
 
-        if(aliyunSTSModule==null)
-        {
+        if (aliyunSTSModule == null) {
             aliyunSTSModule = new AliyunSTSModule();
         }
         return aliyunSTSModule;
+    }
+
+
+    private static TencentBuglyModule tencentBuglyModule;
+
+    public static TencentBuglyModule getTencentBuglyModule() {
+
+        if (tencentBuglyModule == null) {
+            tencentBuglyModule = new TencentBuglyModule();
+        }
+
+        return tencentBuglyModule;
     }
 }

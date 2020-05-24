@@ -24,7 +24,9 @@ public class ModuleAdapter implements Module {
         }
         Object o = null;
         try {
-            o = aClass.newInstance();
+            if (aClass != null) {
+                o = aClass.newInstance();
+            }
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {

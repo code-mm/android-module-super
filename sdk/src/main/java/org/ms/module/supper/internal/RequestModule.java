@@ -12,24 +12,26 @@ public class RequestModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.impl.request.RequestImpl";
 
-    private IRequest iRequest;
+    private IRequest request;
 
 
     @Override
     public IRequest get() {
-        if (iRequest == null) {
+        if (request == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IRequest) {
-                    iRequest = (IRequest) o;
-                    if (iRequest != null) {
-                        return iRequest;
+                    request = (IRequest) o;
+                    if (request != null) {
+                        return request;
                     } else {
-                        iRequest = new IRequestAdapter();
+                        request = new IRequestAdapter();
                     }
                 }
+            } else {
+                request = new IRequestAdapter();
             }
         }
-        return iRequest;
+        return request;
     }
 }

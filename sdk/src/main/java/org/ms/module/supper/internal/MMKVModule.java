@@ -11,26 +11,28 @@ public class MMKVModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.impl.mmkv.MMKVImpl";
 
-    IMMKV immkv;
+    IMMKV mmkv;
 
 
     @Override
     public IMMKV get() {
-        if (immkv == null) {
+        if (mmkv == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IMMKV) {
-                    immkv = (IMMKV) o;
+                    mmkv = (IMMKV) o;
 
-                    if (immkv != null) {
-                        return immkv;
+                    if (mmkv != null) {
+                        return mmkv;
                     } else {
-                        immkv = new IMMKVAdapter();
+                        mmkv = new IMMKVAdapter();
                     }
                 }
+            } else {
+                mmkv = new IMMKVAdapter();
             }
         }
-        return immkv;
+        return mmkv;
     }
 
 

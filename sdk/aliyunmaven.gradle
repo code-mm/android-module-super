@@ -1,12 +1,12 @@
-
+apply plugin: 'maven'
 // 上传到本地
-def _local = false
+def _local = true
 // 是否未快照模式
-def _snapshot = true
+def _snapshot = false
 // 组id
 def _groupId = "org.ms"
 // 项目id
-def _artifactId = "android-sdk-module-supper"
+def _artifactId = "androidx-sdk-module-supper"
 // 发布类型 aar jar
 def _packaging = "aar"
 // 发布版本

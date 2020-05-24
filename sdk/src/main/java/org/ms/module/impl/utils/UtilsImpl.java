@@ -7,6 +7,7 @@ import org.ms.module.supper.inter.utils.IMD5Utils;
 import org.ms.module.supper.inter.utils.INetWorkUtils;
 import org.ms.module.supper.inter.utils.IRegexUtils;
 import org.ms.module.supper.inter.utils.IResUtils;
+import org.ms.module.supper.inter.utils.ISystemUtils;
 import org.ms.module.supper.inter.utils.IThreadPoolUtils;
 import org.ms.module.supper.inter.utils.IToastUtils;
 import org.ms.module.supper.inter.utils.IUtilsAdapter;
@@ -58,5 +59,11 @@ public class UtilsImpl extends IUtilsAdapter {
     @Override
     public IResUtils getResUtils() {
         return ResUtils.getInstance();
+    }
+
+
+    @Override
+    public ISystemUtils getSystemUtils() {
+        return SystemUtils.getInstance();
     }
 }

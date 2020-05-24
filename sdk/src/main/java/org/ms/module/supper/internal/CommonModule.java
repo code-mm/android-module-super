@@ -28,6 +28,8 @@ public class CommonModule extends ModuleAdapter {
                         iCommon=new ICommonAdapter();
                     }
                 }
+            }else{
+
             }
         }
         return iCommon;

@@ -1,5 +1,8 @@
 package org.ms.module.impl.request;
 
+import android.graphics.Bitmap;
+
+import org.ms.module.impl.utils.DownloadUtils;
 import org.ms.module.supper.inter.common.ICallBack;
 import org.ms.module.supper.inter.net.IRequest;
 import org.ms.module.supper.inter.net.Response;
@@ -166,6 +169,11 @@ public class RequestImpl implements IRequest {
     }
 
     @Override
+    public Bitmap downloadImage(String s) {
+        return DownloadUtils.getInstance().getURLimage(s);
+    }
+
+    @Override
     public Response requestBody(Map<String, String> headers, String url, String body) {
 
         if (plugin != null) {
@@ -191,7 +199,7 @@ public class RequestImpl implements IRequest {
             return new Response(execute.code(), bodyString, null);
         } catch (IOException e) {
             e.printStackTrace();
-            return new Response(execute == null ? -1 : execute.code(), null, e.getMessage().toString(),e);
+            return new Response(execute == null ? -1 : execute.code(), null, e.getMessage().toString(), e);
         }
     }
 }

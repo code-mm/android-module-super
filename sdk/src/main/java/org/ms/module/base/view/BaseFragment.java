@@ -58,9 +58,11 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment implem
         return view;
     }
 
-    protected abstract void initView();
+    protected  void initView(){}
 
-    protected abstract int getLayout();
+    protected  int getLayout(){
+        return 0;
+    }
 
     public <T> T findViewById(int viewID) {
         return (T) view.findViewById(viewID);

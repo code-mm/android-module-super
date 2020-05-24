@@ -3,6 +3,7 @@ package org.ms.module.supper.client;
 
 import org.ms.module.supper.inter.aliyun.log.IAliyuLog;
 import org.ms.module.supper.inter.aliyun.sts.ISTS;
+import org.ms.module.supper.inter.bugly.ITencentBugly;
 import org.ms.module.supper.inter.common.ICommon;
 import org.ms.module.supper.inter.controll.IControlSwitch;
 import org.ms.module.supper.inter.api.IAPI;
@@ -72,22 +73,25 @@ public class Modules {
     public static IMatrixApi getMatrixApiModule() {
         return ModuleClient.getMatrixApiModule().get();
     }
-    public static ICommon getCommonModule()
-    {
+
+    public static ICommon getCommonModule() {
         return ModuleClient.getCommonModule().get();
     }
-    public static IRequestSetting getRequestSettingModule()
-    {
+
+    public static IRequestSetting getRequestSettingModule() {
         return ModuleClient.getRequestSettingModule().get();
     }
 
-    public static IAliyuLog getAliyuLogModule()
-    {
+    public static IAliyuLog getAliyuLogModule() {
         return ModuleClient.getAliyuLogModule().get();
     }
 
-    public static ISTS getAliyunSTSModule()
-    {
+    public static ISTS getAliyunSTSModule() {
         return ModuleClient.getAliyunSTSModule().get();
+    }
+
+
+    public static ITencentBugly getTencentBuglyModule() {
+        return ModuleClient.getTencentBuglyModule().get();
     }
 }
