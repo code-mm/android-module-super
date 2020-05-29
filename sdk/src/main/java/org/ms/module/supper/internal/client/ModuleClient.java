@@ -132,7 +132,7 @@ public class ModuleClient {
 
     private static NetStatusModule netStatusModule;
 
-    public NetStatusModule getNetStatusModule() {
+    public static NetStatusModule getNetStatusModule() {
 
         if (netStatusModule == null) {
             netStatusModule = new NetStatusModule();
@@ -210,4 +210,12 @@ public class ModuleClient {
 
         return tencentBuglyModule;
     }
+
+
+
+
+
+
+
+
 }

@@ -15,6 +15,8 @@ import org.ms.module.supper.inter.net.INetStatusChange;
 public class NetWorkChangReceiver extends BroadcastReceiver implements INetStatusChange {
 
 
+    private static final String TAG = "NetWorkChangReceiver";
+
     @Override
     public void listener(ICallBack callBack) {
         setNetWorkChange(new NetWorkChange() {
@@ -64,9 +66,10 @@ public class NetWorkChangReceiver extends BroadcastReceiver implements INetStatu
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.e(TAG, "onReceive: ");
         if (WifiManager.WIFI_STATE_CHANGED_ACTION.equals(intent.getAction())) {// 监听wifi的打开与关闭，与wifi的连接无关
             int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0);
-            Log.e("TAG", "wifiState:" + wifiState);
+            Log.e(TAG, "wifiState:" + wifiState);
             switch (wifiState) {
                 case WifiManager.WIFI_STATE_DISABLED:
                     break;

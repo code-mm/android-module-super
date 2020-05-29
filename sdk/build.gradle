@@ -48,6 +48,8 @@ dependencies {
     // mmkv
     implementation 'com.tencent:mmkv-static:1.1.1'
 
+    // 拼音
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
 }
 
 

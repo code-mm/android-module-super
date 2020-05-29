@@ -5,6 +5,7 @@ import org.ms.module.supper.inter.utils.IEncryptionUtils;
 import org.ms.module.supper.inter.utils.IGsonUtils;
 import org.ms.module.supper.inter.utils.IMD5Utils;
 import org.ms.module.supper.inter.utils.INetWorkUtils;
+import org.ms.module.supper.inter.utils.IPinyinUtils;
 import org.ms.module.supper.inter.utils.IRegexUtils;
 import org.ms.module.supper.inter.utils.IResUtils;
 import org.ms.module.supper.inter.utils.ISystemUtils;
@@ -65,5 +66,10 @@ public class UtilsImpl extends IUtilsAdapter {
     @Override
     public ISystemUtils getSystemUtils() {
         return SystemUtils.getInstance();
+    }
+
+    @Override
+    public IPinyinUtils getPinyinUtils() {
+        return new PinyinUtils();
     }
 }

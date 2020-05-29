@@ -56,4 +56,9 @@ public class IUtilsAdapter implements IUtils
     public ISystemUtils getSystemUtils() {
         return null;
     }
+
+    @Override
+    public IPinyinUtils getPinyinUtils() {
+        return null;
+    }
 }

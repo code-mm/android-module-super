@@ -25,4 +25,7 @@ public interface IUtils extends ISupper {
     IResUtils getResUtils();
 
     ISystemUtils getSystemUtils();
+
+    IPinyinUtils getPinyinUtils();
+
 }

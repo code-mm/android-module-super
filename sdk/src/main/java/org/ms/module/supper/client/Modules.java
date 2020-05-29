@@ -14,6 +14,7 @@ import org.ms.module.supper.inter.log.*;
 import org.ms.module.supper.inter.matrix.IMatrix;
 import org.ms.module.supper.inter.matrix.IMatrixApi;
 import org.ms.module.supper.inter.mmkv.IMMKV;
+import org.ms.module.supper.inter.net.INetStatusChange;
 import org.ms.module.supper.inter.net.IRequest;
 import org.ms.module.supper.inter.net.IRequestSetting;
 import org.ms.module.supper.inter.permission.IPermission;
@@ -93,5 +94,9 @@ public class Modules {
 
     public static ITencentBugly getTencentBuglyModule() {
         return ModuleClient.getTencentBuglyModule().get();
+    }
+
+    public static INetStatusChange getNetStatusModule() {
+        return ModuleClient.getNetStatusModule().get();
     }
 }
