@@ -1,4 +1,5 @@
 package org.ms.module.impl.common;
+
 import android.util.Log;
 
 import org.ms.module.supper.client.Modules;
@@ -13,16 +14,24 @@ public class CommonImpl extends ICommonAdapter {
     }
 
     private static final String TAG = "CommonImpl";
+
     @Override
     public void initServerBaseUrl() {
         super.initServerBaseUrl();
 
-        String url = Modules.getUtilsModule().getApkUtils().getMeta(  "com.bdlbsc.server_url");
-        Log.e(TAG, "initServerBaseUrl: "+url  );
-        Modules.getApiModule().setBaseUrls(url);
-        Modules.getRequestSettingModule().setConnectTimeout(60);
-        Modules.getRequestSettingModule().setReadTimeout(60);
-        Modules.getRequestSettingModule().setWriteTimeout(60);
-        Modules.getRequestSettingModule().setRequestLogOut(true);
+        try {
+            String url = Modules.getUtilsModule().getApkUtils().getMeta("com.bdlbsc.server_url");
+            Log.e(TAG, "initServerBaseUrl: " + url);
+            if (url != null) {
+                Modules.getApiModule().setBaseUrls(url);
+            }
+            Modules.getRequestSettingModule().setConnectTimeout(60);
+            Modules.getRequestSettingModule().setReadTimeout(60);
+            Modules.getRequestSettingModule().setWriteTimeout(60);
+            Modules.getRequestSettingModule().setRequestLogOut(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
