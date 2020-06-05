@@ -5,6 +5,14 @@ import org.ms.module.supper.inter.aliyun.log.IAliyuLog;
 import org.ms.module.supper.inter.log.IlogAdapter;
 
 public class LogImpl extends IlogAdapter {
+
+    private boolean aliyun_send = false;
+
+    @Override
+    public void setAliyunSend(boolean f) {
+        this.aliyun_send = f;
+    }
+
     @Override
     public void print(String log) {
         System.out.print(log);
@@ -27,7 +35,8 @@ public class LogImpl extends IlogAdapter {
 
         LogUtils.i(tag, log);
 
-        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
+        if (aliyun_send)
+            Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
 
     }
 
@@ -41,8 +50,8 @@ public class LogImpl extends IlogAdapter {
         int lineNumber = stackTraceElement.getLineNumber();
 
         LogUtils.d(tag, log);
-
-        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
+        if (aliyun_send)
+            Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
     }
 
     @Override
@@ -55,8 +64,8 @@ public class LogImpl extends IlogAdapter {
         int lineNumber = stackTraceElement.getLineNumber();
 
         LogUtils.e(tag, log);
-
-        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
+        if (aliyun_send)
+            Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
     }
 
     @Override
@@ -69,8 +78,8 @@ public class LogImpl extends IlogAdapter {
         int lineNumber = stackTraceElement.getLineNumber();
 
         LogUtils.json(tag, log);
-
-        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
+        if (aliyun_send)
+            Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
     }
 
     @Override
@@ -83,7 +92,7 @@ public class LogImpl extends IlogAdapter {
         int lineNumber = stackTraceElement.getLineNumber();
 
         LogUtils.xml(tag, log);
-
-        Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
+        if (aliyun_send)
+            Modules.getAliyuLogModule().log(methodName, className, fileName, lineNumber, tag, log);
     }
 }

@@ -9,6 +9,11 @@ public class IlogAdapter implements ILog {
 
 
     @Override
+    public void setAliyunSend(boolean f) {
+
+    }
+
+    @Override
     public void print(String log) {
 
     }
