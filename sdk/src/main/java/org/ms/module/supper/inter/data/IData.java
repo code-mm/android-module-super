@@ -7,5 +7,7 @@ public interface IData extends ISupper {
     IAppData getAppData();
     IUserData  getUserData();
     IMatrixData getMatrixData();
-    IAliyunOSSData getAliyunOSSData();
+    IAliyunSTSData getAliyunSTSData();
+
 }
+

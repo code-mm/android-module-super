@@ -2,21 +2,20 @@ package org.ms.module.base.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import org.ms.module.base.inter.IPresenter;
 import org.ms.module.base.inter.IView;
-import org.ms.module.dialog.ui.widget.progress.UIProgressDialog;
+import org.ms.module.base.dialog.ui.widget.progress.UIProgressDialog;
 import org.ms.module.supper.client.Modules;
-import org.ms.module.supper.inter.module.Module;
-import org.ms.modules.R;
 
 
 public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCompatActivity implements IView {
@@ -73,12 +72,15 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
 
     }
 
-    protected abstract void initView();
+    protected  void initView(){};
 
-    protected abstract int getLayout();
+    protected  int getLayout(){
+        return 0;
+    }
 
-    protected abstract boolean isFullScreen();
-
+    protected  boolean isFullScreen(){
+        return false;
+    };
 
     protected void setStatusBar() {
         //这里做了两件事情，1.使状态栏透明并使contentView填充到状态栏 2.预留出状态栏的位置，防止界面上的控件离顶部靠的太近。这样就可以实现开头说的第二种情况的沉浸式状态栏了
@@ -169,10 +171,7 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
         }
     };
 
-
     protected InputFilter[] userNameAndPasswordInputFilter = new InputFilter[]{lengthfilter20, new InputFilter.LengthFilter(20)};
     protected InputFilter[] phoneNumberInputFilter = new InputFilter[]{lengthfilter11, new InputFilter.LengthFilter(11)};
     protected InputFilter[] iDcardInputFilter = new InputFilter[]{lengthfilter18, new InputFilter.LengthFilter(18)};
-
-
 }

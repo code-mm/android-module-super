@@ -7,32 +7,28 @@ import org.ms.module.supper.inter.module.ModuleAdapter;
 
 public class DataModule extends ModuleAdapter {
 
-    private static final String CLASSPATH = "org.ms.module.data.impl.DataImpl";
-    private IData iData;
+    private static final String CLASSPATH = "org.ms.module.impl.data.DataImpl";
+    private IData data;
 
     @Override
     public IData get() {
-        if (iData == null) {
+        if (data == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IData) {
-                    iData = (IData) o;
+                    data = (IData) o;
 
-                    if (iData != null) {
-                        return iData;
-
+                    if (data != null) {
+                        return data;
                     } else {
-                        return new IDataAdapter();
+                        data = new IDataAdapter();
                     }
-
-                } else {
-                    System.out.println("! instanceof ");
                 }
             } else {
-                System.out.println("o == null");
+                data = new IDataAdapter();
             }
         }
-        return iData;
+        return data;
     }
 
     @Override

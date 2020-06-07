@@ -9,23 +9,33 @@ import org.ms.module.supper.inter.net.IRequestSetting;
 public class RequestSettingModule extends ModuleAdapter {
 
 
-    private static final String CLASSPATH = "org.ms.module.request.impl.RequestSettingImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.request.RequestSettingImpl";
 
-    private IRequestSetting iRequestSetting;
+    private IRequestSetting requestSetting;
 
 
     @Override
     public IRequestSetting get() {
-        if (iRequestSetting == null) {
+        if (requestSetting == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IRequestSetting) {
-                    iRequestSetting = (IRequestSetting) o;
+                    requestSetting = (IRequestSetting) o;
+
+
+                    if(requestSetting!=null)
+                    {
+                        return requestSetting;
+                    }else{
+
+                    }
 
                 }
+            }else{
+
             }
         }
-        return iRequestSetting;
+        return requestSetting;
     }
 
 

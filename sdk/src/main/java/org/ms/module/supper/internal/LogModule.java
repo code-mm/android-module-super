@@ -6,27 +6,28 @@ import org.ms.module.supper.inter.module.ModuleAdapter;
 
 public class LogModule extends ModuleAdapter {
 
-    private static final String CLASSPATH = "org.ms.module.log.impl.LogImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.log.LogImpl";
 
-    private ILog ilog;
+    private ILog log;
 
     @Override
     public ILog get() {
-        if (ilog == null) {
+        if (log == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof ILog) {
-                    ilog = (ILog) o;
-
-                    if (ilog != null) {
-                        return ilog;
+                    log = (ILog) o;
+                    if (log != null) {
+                        return log;
                     } else {
-                        return new IlogAdapter();
+                        log = new IlogAdapter();
                     }
                 }
+            }else{
+                log = new IlogAdapter();
             }
         }
-        return ilog;
+        return log;
     }
 
     @Override

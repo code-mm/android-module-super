@@ -50,12 +50,10 @@ public interface ISystemUtils  extends ISupper {
 
     String adCode();
 
-
     String getCurrentTimeZone();
-
 
     String getNetWorkTypeName();
 
-
+    String getProcessName();
 
 }

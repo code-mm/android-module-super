@@ -12,5 +12,6 @@ public interface IPresenter extends ISupper {
 
     void hideDialog();
 
+    void onDestory();
 
 }

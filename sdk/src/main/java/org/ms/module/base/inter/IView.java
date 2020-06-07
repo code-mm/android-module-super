@@ -10,5 +10,4 @@ public interface IView extends ISupper {
     void showDialog();
 
     void hideDialog();
-
 }

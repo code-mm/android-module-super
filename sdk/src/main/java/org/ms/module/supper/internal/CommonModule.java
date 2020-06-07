@@ -3,12 +3,13 @@ package org.ms.module.supper.internal;
 import org.ms.module.supper.inter.api.IAPI;
 import org.ms.module.supper.inter.api.IAPIAdapter;
 import org.ms.module.supper.inter.common.ICommon;
+import org.ms.module.supper.inter.common.ICommonAdapter;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 
 
 public class CommonModule extends ModuleAdapter {
 
-    private static final String CLASSPATH = "org.ms.module.common.impl.CommonImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.common.CommonImpl";
 
     private ICommon iCommon;
 
@@ -20,7 +21,15 @@ public class CommonModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof ICommon) {
                     iCommon = (ICommon) o;
+                    if(iCommon!=null)
+                    {
+                        return iCommon;
+                    }else{
+                        iCommon=new ICommonAdapter();
+                    }
                 }
+            }else{
+
             }
         }
         return iCommon;

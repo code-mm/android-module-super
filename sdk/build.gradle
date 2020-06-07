@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
+
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -21,12 +21,14 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-
 
     // okhttp
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.10.0'
@@ -44,86 +46,24 @@ dependencies {
     // okhttp 日志
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
     // mmkv
-    implementation 'com.tencent:mmkv-static:1.1.0'
-}
+    implementation 'com.tencent:mmkv-static:1.1.1'
 
-def local = true
-def snapshot = false
-
-if (local) {
-    uploadArchives {
-        repositories {
-            mavenDeployer {
-                repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-
-                if (snapshot) {
-
-                    pom.version = "latest-SNAPSHOT"
-                } else {
-                    pom.version = "latest"
-                }
-                pom.artifactId = "android-sdk-module-supper"
-                pom.groupId = "org.ms"
-            }
-        }
-    }
-} else {
-    uploadArchives {
-        repositories.mavenDeployer {
-            repository(url: "http://nexus.mhw828.com:8081/repository/maven-releases") {
-                authentication(userName: "admin", password: "admindev")
-            }
-
-            snapshotRepository(url: "http://nexus.mhw828.com:8081/repository/maven-snapshots") {
-                authentication(userName: "admin", password: "admindev")
-            }
-
-            pom.project {
-                // 注意：【这里通过切换 versionName 的赋值来区分上传快照包还是正式包（snapshot 版本必须以 -SNAPSHOT 结尾）】
-                //version snapshotVersionName
-                //组 maven_pom_groupid
-                groupId "org.ms"
-                //项目名称
-                artifactId "android-sdk-module-supper"
-                //  类型
-                packaging "aar"
-                // 描述
-                description ""
-                // 版本
-                if (snapshot) {
-                    version = "latest-SNAPSHOT"
-                } else {
-                    version = "latest"
-                }
-            }
-        }
-    }
+    // 拼音
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
 }
 
 
-// type显示指定任务类型或任务, 这里指定要执行Javadoc这个task,这个task在gradle中已经定义
-task androidJavadocs(type: Javadoc) {
-    // 设置源码所在的位置
-    source = android.sourceSets.main.java.sourceFiles
-}
+apply from:"./aliyunmaven.gradle"
 
-// 生成javadoc.jar
-task androidJavadocsJar(type: Jar) {
-    // 指定文档名称
-    classifier = 'javadoc'
-    from androidJavadocs.destinationDir
-}
-
-// 生成sources.jar
-task androidSourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.sourceFiles
-}
-
-// 产生相关配置文件的任务
-artifacts {
-    archives androidSourcesJar
-    archives androidJavadocsJar
-}
-
-task install(dependsOn: uploadArchives)
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+//            pom.version = "${rootProject.ext.maven_version}"
+//            pom.artifactId = "android-sdk-module-supperx"
+//            pom.groupId = "org.ms"
+//        }
+//    }
+//}
+//
+//task install(dependsOn: uploadArchives)

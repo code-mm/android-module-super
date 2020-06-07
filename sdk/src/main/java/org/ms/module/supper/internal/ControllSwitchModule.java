@@ -8,27 +8,28 @@ import org.ms.module.supper.inter.supper.ISupper;
 public class ControllSwitchModule extends ModuleAdapter {
 
 
-    private static final String CLASSPATH = "org.ms.module.controllswitch.impl.ControllSwitchImpl";
+    private static final String CLASSPATH = "org.ms.module.impl.controllswitch.ControllSwitchImpl";
 
-    IControlSwitch iControlSwitch;
+    IControlSwitch controlSwitch;
 
     @Override
     public IControlSwitch get() {
-        if (iControlSwitch == null) {
+        if (controlSwitch == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IControlSwitch) {
-                    iControlSwitch = (IControlSwitch) o;
-
-                    if (iControlSwitch != null) {
-                        return iControlSwitch;
+                    controlSwitch = (IControlSwitch) o;
+                    if (controlSwitch != null) {
+                        return controlSwitch;
                     } else {
-                        return new IControllSwitchAdapter();
+                        controlSwitch = new IControllSwitchAdapter();
                     }
                 }
+            } else {
+                controlSwitch = new IControllSwitchAdapter();
             }
         }
-        return iControlSwitch;
+        return controlSwitch;
     }
 
 

@@ -2,15 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.ms.modules">
 
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
     <application>
 
 
         <provider
-            android:name="org.ms.module.data.contentprovider.DataInitContentProvider"
+            android:name="org.ms.module.impl.data.DataInitContentProvider"
             android:authorities="org.ms.${applicationId}.modules.data.init.instance"
             android:enabled="true"
             android:exported="false" />
 
+
+        <receiver android:name="org.ms.module.impl.net.NetWorkChangReceiver">
+
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+
+        </receiver>
 
     </application>
 

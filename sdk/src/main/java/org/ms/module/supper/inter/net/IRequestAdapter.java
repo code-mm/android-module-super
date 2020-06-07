@@ -1,5 +1,7 @@
 package org.ms.module.supper.inter.net;
 
+import android.graphics.Bitmap;
+
 import org.ms.module.supper.inter.common.ICallBack;
 import org.ms.module.supper.inter.supper.ISupper;
 
@@ -43,4 +45,11 @@ public class IRequestAdapter implements IRequest {
     public void requestBody(Map<String, String> headers, String url, String body, ICallBack callBack) {
 
     }
+
+    @Override
+    public Bitmap downloadImage(String s) {
+        return null;
+    }
+
+
 }

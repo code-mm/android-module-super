@@ -1,9 +1,10 @@
 package org.ms.module.base.utils;
 
 import android.os.Looper;
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.CheckResult;
+import androidx.annotation.NonNull;
 
 import java.util.concurrent.TimeUnit;
 

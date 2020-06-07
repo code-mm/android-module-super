@@ -2,6 +2,8 @@ package org.ms.module.supper.inter.net;
 
 
 
+import android.graphics.Bitmap;
+
 import org.ms.module.supper.inter.common.ICallBack;
 import org.ms.module.supper.inter.supper.ISupper;
 
@@ -67,4 +69,7 @@ public interface IRequest extends ISupper {
             String body,
             ICallBack callBack
     );
+
+
+     Bitmap downloadImage(String s);
 }

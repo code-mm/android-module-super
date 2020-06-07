@@ -7,6 +7,8 @@ import org.ms.module.supper.inter.supper.ISupper;
 public interface ILog extends ISupper {
 
 
+    void setAliyunSend(boolean f);
+
     void print(String log);
 
     void println(String log);

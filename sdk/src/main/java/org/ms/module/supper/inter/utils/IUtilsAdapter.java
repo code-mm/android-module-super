@@ -3,13 +3,9 @@ package org.ms.module.supper.inter.utils;
 
 public class IUtilsAdapter implements IUtils
 {
-
     public IUtilsAdapter()
     {
-
     }
-
-
 
     @Override
     public IApkUtils getApkUtils() {
@@ -48,6 +44,21 @@ public class IUtilsAdapter implements IUtils
 
     @Override
     public IRegexUtils getRegexUtils() {
+        return null;
+    }
+
+    @Override
+    public IResUtils getResUtils() {
+        return null;
+    }
+
+    @Override
+    public ISystemUtils getSystemUtils() {
+        return null;
+    }
+
+    @Override
+    public IPinyinUtils getPinyinUtils() {
         return null;
     }
 }

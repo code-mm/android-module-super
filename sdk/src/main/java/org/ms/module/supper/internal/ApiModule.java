@@ -6,30 +6,27 @@ import org.ms.module.supper.inter.api.IAPIAdapter;
 import org.ms.module.supper.inter.module.ModuleAdapter;
 
 public class ApiModule extends ModuleAdapter {
-
-    private static final String CLASSPATH = "org.ms.module.api.impl.ApiImpl";
-
-    private IAPI iapi;
-
+    private static final String CLASSPATH = "org.ms.module.impl.api.ApiImpl";
+    private IAPI api;
 
     @Override
     public IAPI get() {
-        if (iapi == null) {
+        if (api == null) {
             Object o = loaderClass(CLASSPATH);
             if (o != null) {
                 if (o instanceof IAPI) {
-                    iapi = (IAPI) o;
-
-                    if(iapi!=null)
-                    {
-                        return iapi;
-                    }else{
-                        return  new IAPIAdapter();
+                    api = (IAPI) o;
+                    if (api != null) {
+                        return api;
+                    } else {
+                        api = new IAPIAdapter();
                     }
                 }
+            } else {
+                api = new IAPIAdapter();
             }
         }
-        return iapi;
+        return api;
     }
 
     @Override

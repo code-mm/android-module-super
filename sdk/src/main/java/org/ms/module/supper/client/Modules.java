@@ -1,6 +1,9 @@
 package org.ms.module.supper.client;
 
 
+import org.ms.module.supper.inter.aliyun.log.IAliyuLog;
+import org.ms.module.supper.inter.aliyun.sts.ISTS;
+import org.ms.module.supper.inter.bugly.ITencentBugly;
 import org.ms.module.supper.inter.common.ICommon;
 import org.ms.module.supper.inter.controll.IControlSwitch;
 import org.ms.module.supper.inter.api.IAPI;
@@ -11,11 +14,12 @@ import org.ms.module.supper.inter.log.*;
 import org.ms.module.supper.inter.matrix.IMatrix;
 import org.ms.module.supper.inter.matrix.IMatrixApi;
 import org.ms.module.supper.inter.mmkv.IMMKV;
+import org.ms.module.supper.inter.net.INetStatusChange;
 import org.ms.module.supper.inter.net.IRequest;
 import org.ms.module.supper.inter.net.IRequestSetting;
 import org.ms.module.supper.inter.permission.IPermission;
 import org.ms.module.supper.inter.utils.IUtils;
-import org.ms.module.supper.internal.ModuleClient;
+import org.ms.module.supper.internal.client.ModuleClient;
 
 public class Modules {
     private Modules() {
@@ -70,12 +74,29 @@ public class Modules {
     public static IMatrixApi getMatrixApiModule() {
         return ModuleClient.getMatrixApiModule().get();
     }
-    public static ICommon getCommonModule()
-    {
+
+    public static ICommon getCommonModule() {
         return ModuleClient.getCommonModule().get();
     }
-    public static IRequestSetting getRequestSettingModule()
-    {
+
+    public static IRequestSetting getRequestSettingModule() {
         return ModuleClient.getRequestSettingModule().get();
+    }
+
+    public static IAliyuLog getAliyuLogModule() {
+        return ModuleClient.getAliyuLogModule().get();
+    }
+
+    public static ISTS getAliyunSTSModule() {
+        return ModuleClient.getAliyunSTSModule().get();
+    }
+
+
+    public static ITencentBugly getTencentBuglyModule() {
+        return ModuleClient.getTencentBuglyModule().get();
+    }
+
+    public static INetStatusChange getNetStatusModule() {
+        return ModuleClient.getNetStatusModule().get();
     }
 }
