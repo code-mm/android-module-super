@@ -15,6 +15,22 @@ def _releaseVersion = "latest"
 def _snapohotVersion = "latest-SNAPSHOT"
 
 
+def  aliyun=false
+
+def _server_release_url;
+def _server_snapshot_url;
+
+
+if(aliyun){
+
+    _server_release_url="https://repo.rdc.aliyun.com/repository/73792-release-PXkyIy/"
+    _server_snapshot_url="https://repo.rdc.aliyun.com/repository/73792-snapshot-z4fvGZ/"
+}else{
+    _server_release_url="https://repo.rdc.aliyun.com/repository/73792-release-PXkyIy/"
+    _server_snapshot_url="https://repo.rdc.aliyun.com/repository/73792-snapshot-z4fvGZ/"
+}
+
+
 if (_local) {
     uploadArchives {
         repositories {
@@ -35,26 +51,17 @@ if (_local) {
 } else {
     uploadArchives {
         repositories.mavenDeployer {
-            repository(url: "https://repo.rdc.aliyun.com/repository/73792-release-PXkyIy/") {
-
+            repository(url: _server_release_url) {
                 authentication(userName: System.getenv("ALIYUN_MAVEN_USERNAME"), password: System.getenv("ALIYUN_MAVEN_PASSWORD"))
-                //authentication(userName: "KwPAxj", password: "KKnP3maIK3")
             }
-            snapshotRepository(url: "https://repo.rdc.aliyun.com/repository/73792-snapshot-z4fvGZ/") {
-                //authentication(userName: "KwPAxj", password: "KKnP3maIK3")
+            snapshotRepository(url: _server_snapshot_url) {
                 authentication(userName: System.getenv("ALIYUN_MAVEN_USERNAME"), password: System.getenv("ALIYUN_MAVEN_PASSWORD"))
             }
             pom.project {
-                // 注意：【这里通过切换 versionName 的赋值来区分上传快照包还是正式包（snapshot 版本必须以 -SNAPSHOT 结尾）】
-                //version snapshotVersionName
-                //组 maven_pom_groupid
                 pom.artifactId = _artifactId
                 pom.groupId = _groupId
-                //  类型
                 packaging _packaging
-                // 描述
                 description ""
-                // 版本
                 if (_snapshot) {
                     version = _snapohotVersion
                 } else {
