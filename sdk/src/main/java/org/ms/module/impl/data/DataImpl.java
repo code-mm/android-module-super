@@ -22,7 +22,7 @@ public class DataImpl extends IDataAdapter {
 
     @Override
     public IMatrixData getMatrixData() {
-        return null;
+        return new MatrixDataImpl();
     }
 
     @Override

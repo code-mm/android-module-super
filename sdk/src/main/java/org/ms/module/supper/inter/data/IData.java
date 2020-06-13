@@ -9,5 +9,6 @@ public interface IData extends ISupper {
     IMatrixData getMatrixData();
     IAliyunSTSData getAliyunSTSData();
 
+
 }
 
