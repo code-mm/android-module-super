@@ -10,8 +10,6 @@ import org.ms.module.supper.internal.DataPersistenceModule;
 import org.ms.module.supper.internal.ExceptionModule;
 import org.ms.module.supper.internal.LogModule;
 import org.ms.module.supper.internal.MMKVModule;
-import org.ms.module.supper.internal.MatrixApiModule;
-import org.ms.module.supper.internal.MatrixModule;
 import org.ms.module.supper.internal.NetStatusModule;
 import org.ms.module.supper.internal.PermissionModule;
 import org.ms.module.supper.internal.RequestModule;
@@ -140,23 +138,6 @@ public class ModuleClient {
         return netStatusModule;
     }
 
-    private static MatrixModule matrixModule;
-
-    public static MatrixModule getMatrixModule() {
-        if (matrixModule == null) {
-            matrixModule = new MatrixModule();
-        }
-        return matrixModule;
-    }
-
-    private static MatrixApiModule matrixApiModule;
-
-    public static MatrixApiModule getMatrixApiModule() {
-        if (matrixApiModule == null) {
-            matrixApiModule = new MatrixApiModule();
-        }
-        return matrixApiModule;
-    }
 
     private static CommonModule commonModule;
 
@@ -210,12 +191,6 @@ public class ModuleClient {
 
         return tencentBuglyModule;
     }
-
-
-
-
-
-
 
 
 }

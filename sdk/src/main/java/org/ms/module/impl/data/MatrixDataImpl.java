@@ -5,7 +5,6 @@ import org.ms.module.supper.inter.data.IMatrixDataAdapter;
 
 public class MatrixDataImpl extends IMatrixDataAdapter {
 
-
     private String userId;
     private String username;
     private String password;
@@ -118,7 +117,6 @@ public class MatrixDataImpl extends IMatrixDataAdapter {
         if (s1 != null && !"".equals(s1)) {
             return s1;
         }
-
         return null;
     }
 
@@ -127,7 +125,6 @@ public class MatrixDataImpl extends IMatrixDataAdapter {
         this.username = value;
         Modules.getMmkvModule().put(this.getClass().getSimpleName() + "Username".toLowerCase(), value);
         Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "Username".toLowerCase(), value);
-
     }
 
     @Override
@@ -145,7 +142,6 @@ public class MatrixDataImpl extends IMatrixDataAdapter {
         if (s1 != null && !"".equals(s1)) {
             return s1;
         }
-
         return null;
     }
 
@@ -154,7 +150,6 @@ public class MatrixDataImpl extends IMatrixDataAdapter {
         this.password = value;
         Modules.getMmkvModule().put(this.getClass().getSimpleName() + "Password".toLowerCase(), value);
         Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "Password".toLowerCase(), value);
-
     }
 
     @Override
@@ -172,7 +167,6 @@ public class MatrixDataImpl extends IMatrixDataAdapter {
         if (s1 != null && !"".equals(s1)) {
             return s1;
         }
-
         return null;
     }
 }

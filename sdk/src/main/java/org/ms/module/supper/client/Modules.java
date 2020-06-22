@@ -11,8 +11,6 @@ import org.ms.module.supper.inter.data.IData;
 import org.ms.module.supper.inter.datapersistence.IDataPersistence;
 import org.ms.module.supper.inter.exception.IException;
 import org.ms.module.supper.inter.log.*;
-import org.ms.module.supper.inter.matrix.IMatrix;
-import org.ms.module.supper.inter.matrix.IMatrixApi;
 import org.ms.module.supper.inter.mmkv.IMMKV;
 import org.ms.module.supper.inter.net.INetStatusChange;
 import org.ms.module.supper.inter.net.IRequest;
@@ -67,14 +65,6 @@ public class Modules {
         return ModuleClient.getDataPersistenceModule().get();
     }
 
-    public static IMatrix getMatrixModule() {
-        return ModuleClient.getMatrixModule().get();
-    }
-
-    public static IMatrixApi getMatrixApiModule() {
-        return ModuleClient.getMatrixApiModule().get();
-    }
-
     public static ICommon getCommonModule() {
         return ModuleClient.getCommonModule().get();
     }
@@ -90,7 +80,6 @@ public class Modules {
     public static ISTS getAliyunSTSModule() {
         return ModuleClient.getAliyunSTSModule().get();
     }
-
 
     public static ITencentBugly getTencentBuglyModule() {
         return ModuleClient.getTencentBuglyModule().get();
