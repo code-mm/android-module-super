@@ -56,7 +56,7 @@ dependencies {
 }
 
 
-apply from:"./aliyunmaven.gradle"
+apply from:"./mavenpublish.gradle"
 repositories {
     mavenCentral()
 }
