@@ -50,4 +50,14 @@ public class IUserDataAdapter implements  IUserData {
     public void setRefreshToken(String refreshToken) {
 
     }
+
+    @Override
+    public String getRole() {
+        return null;
+    }
+
+    @Override
+    public void setRole() {
+
+    }
 }

@@ -11,6 +11,7 @@ public class UserDataImpl extends IUserDataAdapter {
     private String userid;
     private String access_token;
     private String refresh_token;
+    private String role;
 
 
     @Override
@@ -144,6 +145,33 @@ public class UserDataImpl extends IUserDataAdapter {
         this.refresh_token = value;
         Modules.getMmkvModule().put(this.getClass().getSimpleName() + "RefreshToken".toLowerCase(), value);
         Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "RefreshToken".toLowerCase(), value);
+
+    }
+
+
+    @Override
+    public String getRole() {
+        if (role != null && !"".equals(role)) {
+            return role;
+        }
+
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "Role".toLowerCase());
+        if (s != null && !"".equals(s)) {
+            return s;
+        }
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "Role".toLowerCase());
+
+        if (s1 != null && !"".equals(s1)) {
+            return s1;
+        }
+
+        return null;
+    }
+
+    public void setRole(String value) {
+        this.role = role;
+        Modules.getMmkvModule().put(this.getClass().getSimpleName() + "Role".toLowerCase(), value);
+        Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "Role".toLowerCase(), value);
 
     }
 }
