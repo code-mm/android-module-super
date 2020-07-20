@@ -57,7 +57,7 @@ public class IUserDataAdapter implements  IUserData {
     }
 
     @Override
-    public void setRole() {
+    public void setRole(String value) {
 
     }
 }

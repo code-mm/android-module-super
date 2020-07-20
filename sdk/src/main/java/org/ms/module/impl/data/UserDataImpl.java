@@ -168,6 +168,7 @@ public class UserDataImpl extends IUserDataAdapter {
         return null;
     }
 
+    @Override
     public void setRole(String value) {
         this.role = role;
         Modules.getMmkvModule().put(this.getClass().getSimpleName() + "Role".toLowerCase(), value);

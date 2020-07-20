@@ -30,6 +30,6 @@ public interface IUserData extends ISupper {
     String getRole();
 
     // 设置角色
-    void setRole();
+    void setRole(String value);
 
 }
