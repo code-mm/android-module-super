@@ -1,6 +1,6 @@
 apply plugin: 'maven'
 // 上传到本地
-def _local = true
+def _local = false
 // 是否未快照模式
 def _snapshot = false
 // 组id
