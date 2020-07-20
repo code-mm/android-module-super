@@ -11,19 +11,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import org.ms.module.base.inter.IPresenter;
-import org.ms.module.base.inter.IView;
+import org.ms.module.base.inter.IViewModel;
 import org.ms.module.supper.client.Modules;
 
 
-public abstract class BaseFragment<P extends IPresenter> extends Fragment implements IView {
+public abstract class BaseFragment<VM extends IViewModel> extends Fragment {
 
 
-    protected P presenter = initPresenter();
+    protected VM viewModel = initViewModel();
 
-    protected P initPresenter() {
+    protected VM initViewModel() {
         return null;
     }
+
 
     /**
      * View
@@ -58,9 +58,10 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment implem
         return view;
     }
 
-    protected  void initView(){}
+    protected void initView() {
+    }
 
-    protected  int getLayout(){
+    protected int getLayout() {
         return 0;
     }
 
@@ -73,7 +74,6 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment implem
     }
 
 
-    @Override
     public void showToast(String text) {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override
@@ -124,22 +124,18 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment implem
     };
 
 
-    @Override
     public void showDialog() {
 
     }
 
-    @Override
     public void hideDialog() {
 
     }
 
 
-
     protected InputFilter[] userNameAndPasswordInputFilter = new InputFilter[]{lengthfilter20, new InputFilter.LengthFilter(20)};
     protected InputFilter[] phoneNumberInputFilter = new InputFilter[]{lengthfilter11, new InputFilter.LengthFilter(11)};
     protected InputFilter[] iDcardInputFilter = new InputFilter[]{lengthfilter18, new InputFilter.LengthFilter(18)};
-
 
 
 }

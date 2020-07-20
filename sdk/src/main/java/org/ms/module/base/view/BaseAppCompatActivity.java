@@ -12,17 +12,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import org.ms.module.base.inter.IPresenter;
-import org.ms.module.base.inter.IView;
 import org.ms.module.base.dialog.ui.widget.progress.UIProgressDialog;
+import org.ms.module.base.inter.IViewModel;
 import org.ms.module.supper.client.Modules;
 
 
-public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCompatActivity implements IView {
+public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCompatActivity  {
 
-    protected P presenter = initPresenter();
 
-    protected P initPresenter() {
+    protected VM viewModel = initViewModel();
+
+    protected VM initViewModel() {
         return null;
     }
 
@@ -72,15 +72,18 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
 
     }
 
-    protected  void initView(){};
+    protected void initView() {
+    }
 
-    protected  int getLayout(){
+
+
+    protected int getLayout() {
         return 0;
     }
 
-    protected  boolean isFullScreen(){
+    protected boolean isFullScreen() {
         return false;
-    };
+    }
 
     protected void setStatusBar() {
         //这里做了两件事情，1.使状态栏透明并使contentView填充到状态栏 2.预留出状态栏的位置，防止界面上的控件离顶部靠的太近。这样就可以实现开头说的第二种情况的沉浸式状态栏了
@@ -122,7 +125,6 @@ public abstract class BaseAppCompatActivity<P extends IPresenter> extends AppCom
     }
 
 
-    @Override
     public void showToast(String text) {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override

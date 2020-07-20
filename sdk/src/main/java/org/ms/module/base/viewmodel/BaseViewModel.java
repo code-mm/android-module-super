@@ -2,9 +2,13 @@ package org.ms.module.base.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
-import org.ms.module.base.inter.IPresenter;
+import org.ms.module.base.inter.IRepository;
+import org.ms.module.base.inter.IViewModel;
 
-public class BaseViewModel<P extends IPresenter> extends ViewModel {
+public abstract class BaseViewModel<R extends IRepository> extends ViewModel implements IViewModel {
 
+    protected R repository = initRepository();
+
+    protected abstract R initRepository();
 
 }

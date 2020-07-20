@@ -6,7 +6,7 @@ def _snapshot = false
 // 组id
 def _groupId = "org.ms"
 // 项目id
-def _artifactId = "androidx-sdk-module-supper"
+def _artifactId = "androidx-sdk-module-supper-mvvm"
 // 发布类型 aar jar
 def _packaging = "aar"
 // 发布版本

@@ -10,18 +10,17 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 
-import org.ms.module.base.inter.IPresenter;
-import org.ms.module.base.inter.IView;
 import org.ms.module.base.dialog.ui.widget.progress.UIProgressDialog;
+import org.ms.module.base.inter.IViewModel;
 import org.ms.module.supper.client.Modules;
 
 
-public abstract class BaseActivity<P extends IPresenter> extends Activity implements IView {
+public abstract class BaseActivity<VM extends IViewModel> extends Activity {
 
 
-    protected P presenter = initPresenter();
+    protected VM viewModel = initViewModel();
 
-    protected P initPresenter() {
+    protected VM initViewModel() {
         return null;
     }
 
@@ -69,17 +68,14 @@ public abstract class BaseActivity<P extends IPresenter> extends Activity implem
     }
 
 
-
     protected int getLayout() {
         return 0;
     }
 
 
-
     protected boolean isFullScreen() {
         return false;
     }
-
 
 
     public <T> T findView(int viewID) {
@@ -116,7 +112,6 @@ public abstract class BaseActivity<P extends IPresenter> extends Activity implem
     }
 
 
-    @Override
     public void showToast(String text) {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override
