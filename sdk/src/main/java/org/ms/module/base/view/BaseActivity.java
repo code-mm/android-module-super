@@ -18,17 +18,20 @@ import org.ms.module.supper.client.Modules;
 public abstract class BaseActivity<VM extends IViewModel> extends Activity {
 
 
-    protected VM viewModel = initViewModel();
+    protected VM viewModel;
 
     protected VM initViewModel() {
         return null;
     }
 
 
+
+
     protected UIProgressDialog baseDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        viewModel = initViewModel();
         baseDialog = new UIProgressDialog.MaterialBuilder(this).create();
         if (isFullScreen()) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);

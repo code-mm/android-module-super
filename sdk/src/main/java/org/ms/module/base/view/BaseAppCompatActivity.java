@@ -20,7 +20,7 @@ import org.ms.module.supper.client.Modules;
 public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCompatActivity  {
 
 
-    protected VM viewModel = initViewModel();
+    protected VM viewModel ;
 
     protected VM initViewModel() {
         return null;
@@ -33,7 +33,7 @@ public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCo
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
+        viewModel = initViewModel();
         fragmentManager = getSupportFragmentManager();
         baseDialog = new UIProgressDialog.MaterialBuilder(this).create();
 

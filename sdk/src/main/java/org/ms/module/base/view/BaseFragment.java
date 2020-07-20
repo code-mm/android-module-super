@@ -1,5 +1,6 @@
 package org.ms.module.base.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -18,12 +19,19 @@ import org.ms.module.supper.client.Modules;
 public abstract class BaseFragment<VM extends IViewModel> extends Fragment {
 
 
-    protected VM viewModel = initViewModel();
+    protected VM viewModel;
 
     protected VM initViewModel() {
         return null;
     }
 
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        viewModel = initViewModel();
+    }
 
     /**
      * View
