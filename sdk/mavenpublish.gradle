@@ -14,7 +14,12 @@ def _releaseVersion = "latest"
 // 快照版本
 def _snapohotVersion = "latest-SNAPSHOT"
 
-def _description = "简介"
+def _description = "sdk "
+
+
+
+
+
 
 uploadArchives {
     repositories {
