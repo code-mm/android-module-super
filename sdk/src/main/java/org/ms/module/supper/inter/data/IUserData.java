@@ -25,11 +25,13 @@ public interface IUserData extends ISupper {
 
     void setRefreshToken(String refreshToken);
 
-
     // 获取角色
     String getRole();
 
     // 设置角色
     void setRole(String value);
+
+    // 清除所有数据
+    void clearAll();
 
 }

@@ -16,6 +16,7 @@ public class MMKVImpl implements IMMKV {
         System.out.println("mmkv : " + rootDir);
 
         kv = MMKV.defaultMMKV();
+
     }
 
 

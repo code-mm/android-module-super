@@ -34,5 +34,6 @@ public class DataPersistenceImpl extends IDataPersistenceAdapter {
     public void removeKey(String key) {
         mEdit.remove(key);
         mEdit.commit();
+
     }
 }

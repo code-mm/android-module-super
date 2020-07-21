@@ -28,11 +28,11 @@ public class UserDataImpl extends IUserDataAdapter {
             return username;
         }
 
-        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "Username".toLowerCase());
         if (s != null && !"".equals(s)) {
             return s;
         }
-        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "Username".toLowerCase());
 
         if (s1 != null && !"".equals(s1)) {
             return s1;
@@ -54,11 +54,11 @@ public class UserDataImpl extends IUserDataAdapter {
             return password;
         }
 
-        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "Password".toLowerCase());
         if (s != null && !"".equals(s)) {
             return s;
         }
-        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "Password".toLowerCase());
 
         if (s1 != null && !"".equals(s1)) {
             return s1;
@@ -80,11 +80,11 @@ public class UserDataImpl extends IUserDataAdapter {
             return userid;
         }
 
-        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        String s = Modules.getMmkvModule().get(this.getClass().getSimpleName() + "UserId".toLowerCase());
         if (s != null && !"".equals(s)) {
             return s;
         }
-        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        String s1 = Modules.getDataPersistenceModule().get(this.getClass().getSimpleName() + "UserId".toLowerCase());
 
         if (s1 != null && !"".equals(s1)) {
             return s1;
@@ -173,6 +173,36 @@ public class UserDataImpl extends IUserDataAdapter {
         this.role = role;
         Modules.getMmkvModule().put(this.getClass().getSimpleName() + "Role".toLowerCase(), value);
         Modules.getDataPersistenceModule().put(this.getClass().getSimpleName() + "Role".toLowerCase(), value);
+    }
+
+    @Override
+    public void clearAll() {
+
+        this.username = null;
+        this.password = null;
+        this.userid = null;
+        this.access_token = null;
+        this.refresh_token = null;
+        this.role = null;
+
+        Modules.getMmkvModule().removeKey(this.getClass().getSimpleName() + "Username".toLowerCase());
+        Modules.getDataPersistenceModule().removeKey(this.getClass().getSimpleName() + "Username".toLowerCase());
+
+        Modules.getMmkvModule().removeKey(this.getClass().getSimpleName() + "Password".toLowerCase());
+        Modules.getDataPersistenceModule().removeKey(this.getClass().getSimpleName() + "Password".toLowerCase());
+
+        Modules.getMmkvModule().removeKey(this.getClass().getSimpleName() + "UserId".toLowerCase());
+        Modules.getDataPersistenceModule().removeKey(this.getClass().getSimpleName() + "UserId".toLowerCase());
+
+        Modules.getMmkvModule().removeKey(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+        Modules.getDataPersistenceModule().removeKey(this.getClass().getSimpleName() + "AccessToken".toLowerCase());
+
+        Modules.getMmkvModule().removeKey(this.getClass().getSimpleName() + "RefreshToken".toLowerCase());
+        Modules.getDataPersistenceModule().removeKey(this.getClass().getSimpleName() + "RefreshToken".toLowerCase());
+
+        Modules.getMmkvModule().removeKey(this.getClass().getSimpleName() + "Role".toLowerCase());
+        Modules.getDataPersistenceModule().removeKey(this.getClass().getSimpleName() + "Role".toLowerCase());
+
 
     }
 }

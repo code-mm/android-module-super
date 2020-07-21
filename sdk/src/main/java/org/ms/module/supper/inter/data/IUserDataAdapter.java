@@ -60,4 +60,9 @@ public class IUserDataAdapter implements  IUserData {
     public void setRole(String value) {
 
     }
+
+    @Override
+    public void clearAll() {
+
+    }
 }
