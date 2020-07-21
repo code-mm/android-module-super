@@ -7,7 +7,7 @@ public class IExceptionAdapter implements IException {
     }
 
     @Override
-    public void printStackTrace(Exception e) {
+    public void printStackTrace(Throwable e) {
 
     }
 }

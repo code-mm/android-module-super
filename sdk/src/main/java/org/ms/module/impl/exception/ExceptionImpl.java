@@ -13,7 +13,7 @@ public class ExceptionImpl extends IExceptionAdapter {
     }
 
     @Override
-    public void printStackTrace(Exception e) {
+    public void printStackTrace(Throwable e) {
 
         if (e != null) {
             if (Modules.getControlSwitch().getPrintStackTrace()) {

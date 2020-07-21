@@ -7,10 +7,6 @@ public interface IException extends ISupper {
 
     void handlerInit();
 
-    void printStackTrace(Exception e);
-
-
-
-
+    void printStackTrace(Throwable e);
 
 }
