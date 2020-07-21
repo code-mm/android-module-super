@@ -21,11 +21,14 @@ public class PermissionModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IPermission) {
                     permission = (IPermission) o;
+                    return permission;
                 } else {
                     permission = new IPermissionAdapter();
+                    return permission;
                 }
             } else {
                 permission = new IPermissionAdapter();
+                return permission;
             }
         }
         return permission;

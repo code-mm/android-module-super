@@ -11,7 +11,6 @@ public class UtilsModule extends ModuleAdapter {
 
     private IUtils utils;
 
-
     @Override
     public IUtils get() {
         if (utils == null) {
@@ -23,9 +22,13 @@ public class UtilsModule extends ModuleAdapter {
                         return utils;
                     } else {
                         utils = new IUtilsAdapter();
+                        return utils;
                     }
+                } else {
+                    utils = new IUtilsAdapter();
+                    return utils;
                 }
-            }else{
+            } else {
                 utils = new IUtilsAdapter();
             }
         }

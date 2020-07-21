@@ -21,10 +21,12 @@ public class LogModule extends ModuleAdapter {
                         return log;
                     } else {
                         log = new IlogAdapter();
+                        return log;
                     }
                 }
             }else{
                 log = new IlogAdapter();
+                return log;
             }
         }
         return log;

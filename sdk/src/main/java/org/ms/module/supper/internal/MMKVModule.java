@@ -26,10 +26,12 @@ public class MMKVModule extends ModuleAdapter {
                         return mmkv;
                     } else {
                         mmkv = new IMMKVAdapter();
+                        return mmkv;
                     }
                 }
             } else {
                 mmkv = new IMMKVAdapter();
+                return mmkv;
             }
         }
         return mmkv;

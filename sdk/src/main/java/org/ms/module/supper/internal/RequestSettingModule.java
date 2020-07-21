@@ -4,6 +4,7 @@ import org.ms.module.supper.inter.module.ModuleAdapter;
 import org.ms.module.supper.inter.net.IRequest;
 import org.ms.module.supper.inter.net.IRequestAdapter;
 import org.ms.module.supper.inter.net.IRequestSetting;
+import org.ms.module.supper.inter.net.IRequestSettingAdapter;
 
 
 public class RequestSettingModule extends ModuleAdapter {
@@ -21,20 +22,21 @@ public class RequestSettingModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof IRequestSetting) {
                     requestSetting = (IRequestSetting) o;
-
-
-                    if(requestSetting!=null)
-                    {
+                    if (requestSetting != null) {
                         return requestSetting;
-                    }else{
-
+                    } else {
+                        requestSetting = new IRequestSettingAdapter();
+                        return requestSetting;
                     }
-
+                } else {
+                    requestSetting = new IRequestSettingAdapter();
+                    return requestSetting;
                 }
+            } else {
+                requestSetting = new IRequestSettingAdapter();
+                return requestSetting;
             }
         }
         return requestSetting;
     }
-
-
 }

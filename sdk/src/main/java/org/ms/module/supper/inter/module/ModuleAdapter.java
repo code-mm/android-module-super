@@ -34,6 +34,4 @@ public class ModuleAdapter implements Module {
         }
         return o;
     }
-
-
 }

@@ -30,6 +30,7 @@ public class NetStatusModule extends ModuleAdapter {
                             public void listener(ICallBack callBack) {
                             }
                         };
+                        return iNetStatusChange;
                     }
                 }
             } else {
@@ -38,6 +39,7 @@ public class NetStatusModule extends ModuleAdapter {
                     public void listener(ICallBack callBack) {
                     }
                 };
+                return iNetStatusChange;
             }
         }
         return iNetStatusChange;

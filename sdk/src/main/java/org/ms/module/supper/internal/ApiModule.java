@@ -20,10 +20,15 @@ public class ApiModule extends ModuleAdapter {
                         return api;
                     } else {
                         api = new IAPIAdapter();
+                        return api;
                     }
+                }else{
+                    api = new IAPIAdapter();
+                    return api;
                 }
             } else {
                 api = new IAPIAdapter();
+                return api;
             }
         }
         return api;

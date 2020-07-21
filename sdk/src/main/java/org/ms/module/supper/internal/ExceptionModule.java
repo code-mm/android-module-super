@@ -23,10 +23,12 @@ public class ExceptionModule extends ModuleAdapter {
                         return exception;
                     } else {
                         exception = new IExceptionAdapter();
+                        return exception;
                     }
                 }
             }else{
                 exception = new IExceptionAdapter();
+                return exception;
             }
         }
         return exception;

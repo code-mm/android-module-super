@@ -55,8 +55,7 @@ public class ApiImpl extends IAPIAdapter {
 
     @Override
     public String getBaseUrl() {
-        if(baseUrls.size()==0)
-        {
+        if (baseUrls.size() == 0) {
             return Modules.getUtilsModule().getApkUtils().getMeta("com.bdlbsc.base.server");
         }
         return baseUrls.get(0);

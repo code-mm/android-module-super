@@ -8,8 +8,7 @@ public class TencentBuglyModule extends ModuleAdapter {
 
     private static final String CLASSPATH = "org.ms.module.impl.bugly.TencentBuglyImpl";
 
-
-    ITencentBugly tencentBugly;
+    private ITencentBugly tencentBugly;
 
     @Override
     public ITencentBugly get() {
@@ -30,7 +29,6 @@ public class TencentBuglyModule extends ModuleAdapter {
         }
         return tencentBugly;
     }
-
 
     @Override
     public String name() {

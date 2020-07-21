@@ -24,10 +24,12 @@ public class DataPersistenceModule extends ModuleAdapter {
                         return dataPersistence;
                     } else {
                         dataPersistence = new IDataPersistenceAdapter();
+                        return dataPersistence;
                     }
                 }
             } else {
                 dataPersistence = new IDataPersistenceAdapter();
+                return dataPersistence;
             }
         }
         return dataPersistence;

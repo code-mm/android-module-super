@@ -2,11 +2,9 @@ package org.ms.module.supper.inter.log;
 
 public class IlogAdapter implements ILog {
 
-
     public IlogAdapter() {
 
     }
-
 
     @Override
     public void setAliyunSend(boolean f) {

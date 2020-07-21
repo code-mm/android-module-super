@@ -21,15 +21,19 @@ public class CommonModule extends ModuleAdapter {
             if (o != null) {
                 if (o instanceof ICommon) {
                     iCommon = (ICommon) o;
-                    if(iCommon!=null)
-                    {
+                    if (iCommon != null) {
                         return iCommon;
-                    }else{
-                        iCommon=new ICommonAdapter();
+                    } else {
+                        iCommon = new ICommonAdapter();
+                        return iCommon;
                     }
+                } else {
+                    iCommon = new ICommonAdapter();
+                    return iCommon;
                 }
-            }else{
-
+            } else {
+                iCommon = new ICommonAdapter();
+                return iCommon;
             }
         }
         return iCommon;

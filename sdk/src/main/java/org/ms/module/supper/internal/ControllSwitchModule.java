@@ -23,10 +23,12 @@ public class ControllSwitchModule extends ModuleAdapter {
                         return controlSwitch;
                     } else {
                         controlSwitch = new IControllSwitchAdapter();
+                        return controlSwitch;
                     }
                 }
             } else {
                 controlSwitch = new IControllSwitchAdapter();
+                return controlSwitch;
             }
         }
         return controlSwitch;

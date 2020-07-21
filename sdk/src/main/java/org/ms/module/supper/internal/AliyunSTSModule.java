@@ -19,13 +19,14 @@ public class AliyunSTSModule extends ModuleAdapter {
                     if (sts != null) {
                         return sts;
                     } else {
-                        sts = () -> {
+                        return sts = () -> {
 
                         };
+
                     }
                 }
             } else {
-                sts = () -> {
+                return sts = () -> {
 
                 };
             }

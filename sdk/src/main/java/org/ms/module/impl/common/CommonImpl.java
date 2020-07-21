@@ -7,18 +7,16 @@ import org.ms.module.supper.inter.common.ICommonAdapter;
 import org.ms.module.supper.inter.module.Module;
 
 public class CommonImpl extends ICommonAdapter {
-    @Override
-    public void init() {
-        super.init();
-        initServerBaseUrl();
-    }
 
     private static final String TAG = "CommonImpl";
 
     @Override
-    public void initServerBaseUrl() {
-        super.initServerBaseUrl();
+    public void init() {
+        initServerBaseUrl();
+    }
 
+    @Override
+    public void initServerBaseUrl() {
         try {
             String url = Modules.getUtilsModule().getApkUtils().getMeta("com.bdlbsc.server_url");
             Log.e(TAG, "initServerBaseUrl: " + url);
@@ -32,6 +30,5 @@ public class CommonImpl extends ICommonAdapter {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
