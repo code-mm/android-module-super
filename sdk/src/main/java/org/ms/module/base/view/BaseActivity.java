@@ -25,8 +25,6 @@ public abstract class BaseActivity<VM extends IViewModel> extends Activity {
     }
 
 
-
-
     protected UIProgressDialog baseDialog;
 
     @Override
@@ -90,8 +88,9 @@ public abstract class BaseActivity<VM extends IViewModel> extends Activity {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override
             public void run() {
-                baseDialog.show();
-
+                if (baseDialog != null && !baseDialog.isShowing()) {
+                    baseDialog.show();
+                }
             }
         });
     }
@@ -100,7 +99,9 @@ public abstract class BaseActivity<VM extends IViewModel> extends Activity {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override
             public void run() {
-                baseDialog.hide();
+                if (baseDialog != null && baseDialog.isShowing()) {
+                    baseDialog.hide();
+                }
             }
         });
     }

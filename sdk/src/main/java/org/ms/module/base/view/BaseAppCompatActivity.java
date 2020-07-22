@@ -95,9 +95,9 @@ public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCo
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override
             public void run() {
-
-                baseDialog.show();
-
+                if (baseDialog != null && !baseDialog.isShowing()) {
+                    baseDialog.show();
+                }
             }
         });
     }
@@ -106,7 +106,9 @@ public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCo
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override
             public void run() {
-                baseDialog.hide();
+                if (baseDialog != null && baseDialog.isShowing()) {
+                    baseDialog.hide();
+                }
             }
         });
     }

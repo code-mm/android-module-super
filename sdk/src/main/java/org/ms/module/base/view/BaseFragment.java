@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.ms.module.base.dialog.ui.widget.progress.UIProgressDialog;
 import org.ms.module.base.inter.IViewModel;
 import org.ms.module.supper.client.Modules;
 
@@ -25,11 +26,12 @@ public abstract class BaseFragment<VM extends IViewModel> extends Fragment {
         return null;
     }
 
+    protected UIProgressDialog baseDialog;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
+        baseDialog = new UIProgressDialog.MaterialBuilder(getActivity()).create();
         viewModel = initViewModel();
     }
 
@@ -82,6 +84,29 @@ public abstract class BaseFragment<VM extends IViewModel> extends Fragment {
     }
 
 
+    public void showDialog() {
+        Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
+            @Override
+            public void run() {
+                if (baseDialog != null && !baseDialog.isShowing()) {
+                    baseDialog.show();
+                }
+            }
+        });
+    }
+
+    public void hideDialog() {
+        Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
+            @Override
+            public void run() {
+                if (baseDialog != null && baseDialog.isShowing()) {
+                    baseDialog.hide();
+                }
+            }
+        });
+    }
+
+
     public void showToast(String text) {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override
@@ -130,16 +155,6 @@ public abstract class BaseFragment<VM extends IViewModel> extends Fragment {
             return null;
         }
     };
-
-
-    public void showDialog() {
-
-    }
-
-    public void hideDialog() {
-
-    }
-
 
     protected InputFilter[] userNameAndPasswordInputFilter = new InputFilter[]{lengthfilter20, new InputFilter.LengthFilter(20)};
     protected InputFilter[] phoneNumberInputFilter = new InputFilter[]{lengthfilter11, new InputFilter.LengthFilter(11)};
