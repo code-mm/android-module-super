@@ -95,16 +95,18 @@ public abstract class BaseActivity<VM extends IViewModel> extends Activity {
         });
     }
 
-    public void hideDialog() {
+    public void dismiss() {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override
             public void run() {
                 if (baseDialog != null && baseDialog.isShowing()) {
-                    baseDialog.hide();
+                    baseDialog.dismiss();
                 }
             }
         });
     }
+
+
 
     protected void baseStart(final Class<?> clazz) {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {

@@ -17,10 +17,6 @@ def _snapohotVersion = "latest-SNAPSHOT"
 def _description = "sdk "
 
 
-
-
-
-
 uploadArchives {
     repositories {
         mavenDeployer {
@@ -31,86 +27,75 @@ uploadArchives {
         }
     }
 }
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-            pom.version = _snapohotVersion
-            pom.artifactId = _artifactId
-            pom.groupId = _groupId
-        }
-    }
-}
-uploadArchives {
-    repositories.mavenDeployer {
-        snapshotRepository(url: "http://maven.mhw828.com:8081/repository/maven-snapshots/") {
-            authentication(userName: System.getenv("MAVEN_USERNAME"), password: System.getenv("MAVEN_PASSWORD"))
-        }
-        pom.project {
-            // 注意：【这里通过切换 versionName 的赋值来区分上传快照包还是正式包（snapshot 版本必须以 -SNAPSHOT 结尾）】
-            //version snapshotVersionName
-            //组 maven_pom_groupid
-            pom.artifactId = _artifactId
-            pom.groupId = _groupId
-            //  类型
-            packaging _packaging
-            // 描述
-            description _description
-            // 版本
-            version = _snapohotVersion
-
-        }
-    }
-}
 
 
 
 
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        snapshotRepository(url: "http://maven.mhw828.com:8081/repository/maven-snapshots/") {
+//            authentication(userName: System.getenv("MAVEN_USERNAME"), password: System.getenv("MAVEN_PASSWORD"))
+//        }
+//        pom.project {
+//            // 注意：【这里通过切换 versionName 的赋值来区分上传快照包还是正式包（snapshot 版本必须以 -SNAPSHOT 结尾）】
+//            //version snapshotVersionName
+//            //组 maven_pom_groupid
+//            pom.artifactId = _artifactId
+//            pom.groupId = _groupId
+//            //  类型
+//            packaging _packaging
+//            // 描述
+//            description _description
+//            // 版本
+//            version = _snapohotVersion
+//
+//        }
+//    }
+//}
 
 
-uploadArchives {
-    repositories.mavenDeployer {
-        repository(url: "http://maven.mhw828.com:8081/repository/maven-releases/") {
-            authentication(userName: System.getenv("MAVEN_USERNAME"), password: System.getenv("MAVEN_PASSWORD"))
-        }
-        pom.project {
-            // 注意：【这里通过切换 versionName 的赋值来区分上传快照包还是正式包（snapshot 版本必须以 -SNAPSHOT 结尾）】
-            //version snapshotVersionName
-            //组 maven_pom_groupid
-            pom.artifactId = _artifactId
-            pom.groupId = _groupId
-            //  类型
-            packaging _packaging
-            // 描述
-            description _description
-            // 版本
-            version = _releaseVersion
-        }
-    }
-}
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        repository(url: "http://maven.mhw828.com:8081/repository/maven-releases/") {
+//            authentication(userName: System.getenv("MAVEN_USERNAME"), password: System.getenv("MAVEN_PASSWORD"))
+//        }
+//        pom.project {
+//            // 注意：【这里通过切换 versionName 的赋值来区分上传快照包还是正式包（snapshot 版本必须以 -SNAPSHOT 结尾）】
+//            //version snapshotVersionName
+//            //组 maven_pom_groupid
+//            pom.artifactId = _artifactId
+//            pom.groupId = _groupId
+//            //  类型
+//            packaging _packaging
+//            // 描述
+//            description _description
+//            // 版本
+//            version = _releaseVersion
+//        }
+//    }
+//}
 
 
-
-uploadArchives {
-    repositories.mavenDeployer {
-        repository(url: "https://repo.rdc.aliyun.com/repository/73792-snapshot-z4fvGZ/") {
-            authentication(userName: System.getenv("MAVEN_USERNAME"), password: System.getenv("MAVEN_PASSWORD"))
-        }
-        pom.project {
-            // 注意：【这里通过切换 versionName 的赋值来区分上传快照包还是正式包（snapshot 版本必须以 -SNAPSHOT 结尾）】
-            //version snapshotVersionName
-            //组 maven_pom_groupid
-            pom.artifactId = _artifactId
-            pom.groupId = _groupId
-            //  类型
-            packaging _packaging
-            // 描述
-            description _description
-            // 版本
-            version = _snapohotVersion
-        }
-    }
-}
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        repository(url: "https://repo.rdc.aliyun.com/repository/73792-snapshot-z4fvGZ/") {
+//            authentication(userName: System.getenv("MAVEN_USERNAME"), password: System.getenv("MAVEN_PASSWORD"))
+//        }
+//        pom.project {
+//            // 注意：【这里通过切换 versionName 的赋值来区分上传快照包还是正式包（snapshot 版本必须以 -SNAPSHOT 结尾）】
+//            //version snapshotVersionName
+//            //组 maven_pom_groupid
+//            pom.artifactId = _artifactId
+//            pom.groupId = _groupId
+//            //  类型
+//            packaging _packaging
+//            // 描述
+//            description _description
+//            // 版本
+//            version = _snapohotVersion
+//        }
+//    }
+//}
 
 
 //uploadArchives {
@@ -133,8 +118,6 @@ uploadArchives {
 //        }
 //    }
 //}
-
-
 
 
 // type显示指定任务类型或任务, 这里指定要执行Javadoc这个task,这个task在gradle中已经定义

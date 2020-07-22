@@ -102,12 +102,12 @@ public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCo
         });
     }
 
-    public void hideDialog() {
+    public void dismiss() {
         Modules.getUtilsModule().getThreadPoolUtils().runOnMainThread(new Runnable() {
             @Override
             public void run() {
                 if (baseDialog != null && baseDialog.isShowing()) {
-                    baseDialog.hide();
+                    baseDialog.dismiss();
                 }
             }
         });
