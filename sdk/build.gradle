@@ -51,8 +51,6 @@ dependencies {
 
     // 拼音
     implementation 'com.github.promeg:tinypinyin:2.0.3'
-    implementation "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 
