@@ -15,12 +15,13 @@ import androidx.fragment.app.FragmentManager;
 import org.ms.module.base.dialog.ui.widget.progress.UIProgressDialog;
 import org.ms.module.base.inter.IViewModel;
 import org.ms.module.supper.client.Modules;
+import org.ms.modules.R;
 
 
-public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCompatActivity  {
+public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCompatActivity {
 
 
-    protected VM viewModel ;
+    protected VM viewModel;
 
     protected VM initViewModel() {
         return null;
@@ -35,7 +36,9 @@ public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCo
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         viewModel = initViewModel();
         fragmentManager = getSupportFragmentManager();
-        baseDialog = new UIProgressDialog.MaterialBuilder(this).create();
+        baseDialog = new UIProgressDialog.MaterialBuilder(this)
+                .create();
+
 
         if (isFullScreen()) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -74,7 +77,6 @@ public abstract class BaseAppCompatActivity<VM extends IViewModel> extends AppCo
 
     protected void initView() {
     }
-
 
 
     protected int getLayout() {

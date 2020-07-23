@@ -2,6 +2,7 @@ package org.ms.module.base.dialog.ui.widget.progress;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
@@ -16,7 +17,6 @@ import android.widget.TextView;
 import org.ms.module.base.dialog.ui.util.FindViewUtil;
 import org.ms.module.base.dialog.ui.widget.BasisDialog;
 import org.ms.modules.R;
-
 
 
 /**
@@ -235,6 +235,7 @@ public class UIProgressDialog extends BasisDialog<UIProgressDialog> {
                     .setMinHeight(dp2px(65))
                     .setBackgroundRadiusResource(R.dimen.org_ms_dp_radius_loading)
                     .setPadding(dp2px(16));
+
         }
 
 

@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import org.ms.module.base.dialog.ui.util.DrawableUtil;
 import org.ms.module.base.dialog.ui.util.ResourceUtil;
+import org.ms.modules.R;
 
 
 /**

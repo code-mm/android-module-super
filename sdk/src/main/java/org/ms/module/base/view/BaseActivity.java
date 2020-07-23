@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import org.ms.module.base.dialog.ui.widget.progress.UIProgressDialog;
 import org.ms.module.base.inter.IViewModel;
 import org.ms.module.supper.client.Modules;
+import org.ms.modules.R;
 
 
 public abstract class BaseActivity<VM extends IViewModel> extends Activity {
@@ -30,7 +31,8 @@ public abstract class BaseActivity<VM extends IViewModel> extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         viewModel = initViewModel();
-        baseDialog = new UIProgressDialog.MaterialBuilder(this).create();
+        baseDialog = new UIProgressDialog.MaterialBuilder(this)
+                .create();
         if (isFullScreen()) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -105,7 +107,6 @@ public abstract class BaseActivity<VM extends IViewModel> extends Activity {
             }
         });
     }
-
 
 
     protected void baseStart(final Class<?> clazz) {
