@@ -4,7 +4,7 @@ import android.util.Log;
 
 import org.ms.module.supper.client.Modules;
 import org.ms.module.supper.inter.common.ICommonAdapter;
-import org.ms.module.supper.inter.module.Module;
+
 
 public class CommonImpl extends ICommonAdapter {
 
@@ -18,8 +18,13 @@ public class CommonImpl extends ICommonAdapter {
     @Override
     public void initServerBaseUrl() {
         try {
-            String url = Modules.getUtilsModule().getApkUtils().getMeta("com.bdlbsc.server_url");
-            Log.e(TAG, "initServerBaseUrl: " + url);
+            String url = Modules.getUtilsModule().getApkUtils().getMeta("com.app.server_url");
+            if (url == null || "".equals(url)) {
+
+            } else {
+                Log.e(TAG, "initServerBaseUrl: " + url);
+            }
+
             if (url != null) {
                 Modules.getApiModule().setBaseUrls(url);
             }

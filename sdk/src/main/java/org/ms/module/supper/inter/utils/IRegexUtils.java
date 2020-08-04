@@ -48,4 +48,13 @@ public interface IRegexUtils {
     //判断字符串是不是以数字开头
     boolean isStartWithNumber(String str) ;
 
+
+    /**
+     *
+     * @param str
+     * @return
+     */
+    boolean isContainsStr(String str);
+
+
 }

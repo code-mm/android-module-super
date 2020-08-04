@@ -92,4 +92,9 @@ public class IRegexUtilsAdapter implements IRegexUtils {
     public boolean isStartWithNumber(String str) {
         return false;
     }
+
+    @Override
+    public boolean isContainsStr(String str) {
+        return false;
+    }
 }

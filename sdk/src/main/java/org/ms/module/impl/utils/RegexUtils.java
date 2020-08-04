@@ -345,10 +345,17 @@ public class RegexUtils implements IRegexUtils {
     @Override
     public boolean isStartWithNumber(String str) {
         Pattern pattern = Pattern.compile("[0-9]*");
-        Matcher isNum = pattern.matcher(str.charAt(0)+"");
+        Matcher isNum = pattern.matcher(str.charAt(0) + "");
         if (!isNum.matches()) {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean isContainsStr(String str) {
+        String regex = ".*[a-zA-Z]+.*";
+        Matcher m = Pattern.compile(regex).matcher(str);
+        return m.matches();
     }
 }
