@@ -1,9 +1,6 @@
 package org.ms.module.impl.permission;
 
 
-
-
-
 import androidx.fragment.app.FragmentActivity;
 
 import org.ms.module.supper.inter.common.ICallBack;
@@ -17,12 +14,17 @@ public class PermissionImpl implements IPermission {
 
         PermissionUtilsImpl.requestPermission(fragmentActivity, new PermissionUtilsImpl.CallBack() {
             @Override
-            public void callBack() {
-
+            public void success() {
                 if (iCallBack != null) {
                     iCallBack.onSuccess("");
                 }
+            }
 
+            @Override
+            public void filure() {
+                if (iCallBack != null) {
+                    iCallBack.onFailure("");
+                }
             }
         }, strings);
 

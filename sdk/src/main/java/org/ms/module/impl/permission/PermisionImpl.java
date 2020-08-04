@@ -12,13 +12,19 @@ public class PermisionImpl implements IPermission {
 
         PermissionUtilsImpl.requestPermission(activity, new PermissionUtilsImpl.CallBack() {
             @Override
-            public void callBack() {
-
+            public void success() {
                 if (callBack != null) {
                     callBack.onSuccess("");
                 }
-
             }
+
+            @Override
+            public void filure() {
+                if (callBack != null) {
+                    callBack.onFailure("");
+                }
+            }
+
         }, pers);
 
     }

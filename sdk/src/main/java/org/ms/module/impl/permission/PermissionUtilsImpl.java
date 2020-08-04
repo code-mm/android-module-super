@@ -128,7 +128,9 @@ public class PermissionUtilsImpl {
     private static String hintMsg = "";
 
     public interface CallBack {
-        void callBack();
+        void success();
+
+        void filure();
     }
 
     private static CallBack mCallBack;
@@ -229,12 +231,12 @@ public class PermissionUtilsImpl {
                 requestPermission();
             } else {
                 if (mCallBack != null) {
-                    mCallBack.callBack();
+                    mCallBack.success();
                 }
             }
         } else {
             if (mCallBack != null) {
-                mCallBack.callBack();
+                mCallBack.success();
             }
         }
     }
@@ -246,7 +248,7 @@ public class PermissionUtilsImpl {
             public void onGranted() {
                 //权限已经授予
                 if (mCallBack != null) {
-                    mCallBack.callBack();
+                    mCallBack.success();
                 }
             }
 
@@ -373,6 +375,7 @@ public class PermissionUtilsImpl {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //System.exit(0);
+
                     }
                 });
                 builder.setCancelable(false);
@@ -525,7 +528,7 @@ public class PermissionUtilsImpl {
             public void onGranted() {
                 //权限已经授予
                 if (mCallBack != null) {
-                    mCallBack.callBack();
+                    mCallBack.success();
                 }
             }
 
@@ -652,6 +655,9 @@ public class PermissionUtilsImpl {
                 builder.setNeutralButton("退出", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        if (mCallBack != null) {
+                            mCallBack.filure();
+                        }
 
 
                     }
@@ -784,8 +790,9 @@ public class PermissionUtilsImpl {
                 builder.setNeutralButton("退出", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
-
+                        if (mCallBack != null) {
+                            mCallBack.filure();
+                        }
                     }
                 });
                 builder.setCancelable(false);
