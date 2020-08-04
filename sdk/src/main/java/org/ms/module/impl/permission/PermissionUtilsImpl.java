@@ -211,13 +211,13 @@ public class PermissionUtilsImpl {
                 int per = ContextCompat.checkSelfPermission(mActivity, it);
                 if (per == PackageManager.PERMISSION_DENIED) {
 
-                    Log.e(TAG, " reqper:  " + it + "  NO ");
+                    Log.e(TAG, " reqper: " + it + "  NO ");
 
                     PERMISSIONS_RUNTIME.add(it);
                 }
             }
 
-            Log.e(TAG, "reqper: " + PERMISSIONS_RUNTIME.toString());
+            Log.e(TAG, " reqper: " + PERMISSIONS_RUNTIME.toString());
 
             ps = new String[PERMISSIONS_RUNTIME.size()];
 
@@ -307,15 +307,7 @@ public class PermissionUtilsImpl {
                             perstr += "【位置】";
                         }
 
-                    } else if (it.equals(Manifest.permission.ACCESS_FINE_LOCATION)
-                            || it.equals(Manifest.permission.ACCESS_COARSE_LOCATION)
-                    ) {
-
-                        if (!perstr.contains("【位置】")) {
-                            perstr += "【位置】";
-                        }
-
-                    } else if (it.equals(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    }  else if (it.equals(Manifest.permission.READ_EXTERNAL_STORAGE)
                             || it.equals(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     ) {
 
@@ -440,15 +432,7 @@ public class PermissionUtilsImpl {
                             perstr += "【位置】";
                         }
 
-                    } else if (it.equals(Manifest.permission.ACCESS_FINE_LOCATION)
-                            || it.equals(Manifest.permission.ACCESS_COARSE_LOCATION)
-                    ) {
-
-                        if (!perstr.contains("【位置】")) {
-                            perstr += "【位置】";
-                        }
-
-                    } else if (it.equals(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    }  else if (it.equals(Manifest.permission.READ_EXTERNAL_STORAGE)
                             || it.equals(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     ) {
 
@@ -589,15 +573,7 @@ public class PermissionUtilsImpl {
                             perstr += "【位置】";
                         }
 
-                    } else if (it.equals(Manifest.permission.ACCESS_FINE_LOCATION)
-                            || it.equals(Manifest.permission.ACCESS_COARSE_LOCATION)
-                    ) {
-
-                        if (!perstr.contains("【位置】")) {
-                            perstr += "【位置】";
-                        }
-
-                    } else if (it.equals(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    }  else if (it.equals(Manifest.permission.READ_EXTERNAL_STORAGE)
                             || it.equals(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     ) {
 
@@ -717,15 +693,7 @@ public class PermissionUtilsImpl {
                             perstr += "【传感器】";
                         }
 
-                    } else if (it.equals(Manifest.permission.ACCESS_FINE_LOCATION)
-                            || it.equals(Manifest.permission.ACCESS_COARSE_LOCATION)
-                    ) {
-
-                        if (!perstr.contains("【位置】")) {
-                            perstr += "【位置】";
-                        }
-
-                    } else if (it.equals(Manifest.permission.ACCESS_FINE_LOCATION)
+                    }else if (it.equals(Manifest.permission.ACCESS_FINE_LOCATION)
                             || it.equals(Manifest.permission.ACCESS_COARSE_LOCATION)
                     ) {
 
