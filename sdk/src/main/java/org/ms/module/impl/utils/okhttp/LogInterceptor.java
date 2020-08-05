@@ -20,6 +20,7 @@ public class LogInterceptor implements Interceptor {
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         MediaType mediaType = response.body().contentType();
+        int code = response.code();
         String content = response.body().string();
         Log.d(TAG, "\n");
         Log.d(TAG, "----------START----------------");
@@ -38,7 +39,8 @@ public class LogInterceptor implements Interceptor {
                 Log.d(TAG, "| RequestParams:{" + sb.toString() + "}");
             }
         }
-        Log.d(TAG, "| Response:" + content);
+        Log.d(TAG, "| Response code :" + code);
+        Log.d(TAG, "| Response body :" + content);
         Log.d(TAG, "-----------SIZE:" + readableFileSize(content.length()));
         Log.d(TAG, "----------END:" + duration + "毫秒----------");
         return response.newBuilder()
