@@ -4,9 +4,9 @@ def _local = true
 // 是否未快照模式
 def _snapshot = false
 // 组id
-def _groupId = "org.ms"
+def _groupId = "com.ms"
 // 项目id
-def _artifactId = "androidx-sdk-module-supper-mvvm"
+def _artifactId = "module-super"
 // 发布类型 aar jar
 def _packaging = "aar"
 // 发布版本
