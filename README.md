@@ -1,19 +1,13 @@
 ## 使用
 
+### 项目下载到本地
+
+    gradle uploadArchives
+
 ### 添加仓库
 
-#### 正式版本
-
-            maven {
-                url 'http://maven.mhw828.com:8081/repository/maven-releases/'
-            }
-
-#### 快照版本
-
-            maven {
-                url 'http://maven.mhw828.com:8081/repository/maven-snapshots/'
-            }
+    Local()
 
 ### 添加依赖
 
-         implementation 'org.ms:androidx-sdk-module-supper:latest'
+         implementation 'org.ms:module-super:latest'
