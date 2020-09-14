@@ -10,4 +10,4 @@
 
 ### 添加依赖
 
-         implementation 'org.ms:module-super:latest'
+    implementation 'org.ms:module-super:latest'
